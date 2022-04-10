@@ -1,0 +1,56 @@
+@extends('dashboard.layouts.main')
+
+@section('container')
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Peminjaman</h1>
+</div>
+
+<h5 class="mt-3 mb-3"> Tambah Peminjaman</h5>
+  <form action="{{ url('Peminjaman/simpan_peminjaman')}}" method="post">
+    {{ csrf_field() }}
+    <div class="form-group mb-2">
+      <label for="text" class="col-sm-2 col-form-label">Pihak Peminjam</label>
+      <input type="text" id="peminjam" name="peminjam" class="form-control" placeholder="Pihak Peminjam">
+    </div>
+    <div class="form-group mb-2">
+      <label for="date" class="col-sm-2 col-form-label">Tanggal Peminjam</label>
+      <input type="date" id="tgl_pinjam" name="tgl_pinjam" class="form-control" placeholder="Tanggal Peminjam">
+    </div>
+    <div class="form-group mb-2">
+      <label for="text" class="col-sm-2 col-form-label">Kode Barang</label>
+      <input type="text" id="kode_barang" name="kode_barang" class="form-control" placeholder="Kode Barang">
+    </div>
+    <div class="form-group mb-2">
+      <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
+      <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="Nama Barang">
+    </div>
+    <div class="form-group mb-2">
+      <label for="year" class="col-sm-2 col-form-label">Tahun Perolehan</label>
+      <input type="year" id="thn_perolehan" name="thn_perolehan" class="form-control" placeholder="Tahun Perolehan">
+    </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Cara Perolehan</label>
+        <input type="text" id="cara_perolehan" name="cara_perolehan" class="form-control" placeholder="Cara Perolehan">
+    </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Jumlah Barang</label>
+        <input type="text" id="jmlh_barang" name="jmlh_barang" class="form-control" placeholder="Jumlah Barang">
+    </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Harga</label>
+        <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
+    </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Kondisi Barang</label>
+        <input type="text" id="kondisi_barang" name="kondisi_barang" class="form-control" placeholder="Kondisi Barang">
+    </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
+        <input type="text" id="ket" name="ket" class="form-control" placeholder="Keterangan">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Simpan</button>
+    </div>
+  </form>
+
+@endsection
