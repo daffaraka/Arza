@@ -80,7 +80,9 @@ class RekapController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rekapData = Rekap::find($id);
+
+        return view('Rekap.Rekap-edit',compact('rekapData'));
     }
 
     /**
@@ -92,7 +94,10 @@ class RekapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rekap = Rekap::find($id);
+        $rekap->update($request->all());
+
+        return redirect('/Rekap/index')->with('success','Book has been updated');
     }
 
     /**

@@ -15,10 +15,8 @@ class RekapImport implements ToModel
     public function model(array $row)
     {
         return new Rekap([
-            'kode' => $row[1],
-            'aset' => $row[2],
-            'jmlh' => $row[3],
-            'harga' => $row[4],
+            'kode' => $row[0],
+            'aset' => $row[1],
         ]);
     }
 }

@@ -105,5 +105,6 @@ Route::get('/Rekap/delete-rekap/{id}', [RekapController::class, 'destroy' ]);
 
 Route::get('/Rekap/Export-Rekap', [RekapController::class, 'rekapexport' ]);
 Route::post('/Rekap/Import-Rekap', [RekapController::class, 'rekapimport' ]);
+Route::post('/Rekap/update/{id}',[RekapController::class,'update']);
 
 Route::get('/Rekap/Cetak-Rekap', [RekapController::class, 'cetakrekap' ]);
