@@ -8,6 +8,7 @@ use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\RekapController;
+use App\Http\Controllers\TotalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,3 +108,5 @@ Route::get('/Rekap/Export-Rekap', [RekapController::class, 'rekapexport' ]);
 Route::post('/Rekap/Import-Rekap', [RekapController::class, 'rekapimport' ]);
 
 Route::get('/Rekap/Cetak-Rekap', [RekapController::class, 'cetakrekap' ]);
+
+Route::get('/Total/index', [TotalController::class, 'index' ]);
