@@ -1,8 +1,8 @@
 @extends('dashboard.layouts.main')
-
+<title>Buat Aset Tetap</title>
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Aset Tetap</h1>
+        <h1 class="h2">Buat Aset Tetap</h1>
     </div>
 
     <h5 class="mt-3 mb-3"> Tambah Aset Tetap</h5>
@@ -13,7 +13,7 @@
             <select class="form-select" aria-label="Default select example" id="kode">
                 <option selected disabled>- Pilih Kode -</option>
                 @foreach ($rekap as $a)
-                 <option value="{{$a->id}} | {{$a->aset}}">{{$a->id}}</option>
+                 <option value="{{$a->kode}} | {{$a->aset}}">{{$a->kode}}</option>
                 @endforeach
             </select>
             <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>

@@ -91,9 +91,14 @@
             var dataJumlah = [];
             var dataHarga = [];
 
-            for (let i = 0; i < asset.length; i++) {
-                dataJumlah.push(parseInt(asset[i].jumlah))
-                dataHarga.push(parseInt(asset[i].harga))
+            if (asset.length > 0) {
+                for (let i = 0; i < asset.length; i++) {
+                    dataJumlah.push(parseInt(asset[i].jumlah))
+                    dataHarga.push(parseInt(asset[i].harga))
+                }
+            } else {
+                dataJumlah.push(0)
+                dataHarga.push(0)
             }
 
             const sumJumlah = dataJumlah.reduce(add, 0);

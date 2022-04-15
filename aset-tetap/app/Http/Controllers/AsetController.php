@@ -67,8 +67,9 @@ class AsetController extends Controller
    
     public function edit($id)
     {
-        $aset = Aset::findorfail($id);
-        return view('Aset.Edit-Aset', compact('aset'));
+        $aset = Aset::findOrFail($id);
+        $rekap = Rekap::all();
+        return view('Aset.Edit-Aset', compact(['aset','rekap']));
     }
 
   
