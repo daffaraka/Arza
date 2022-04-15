@@ -17,12 +17,18 @@
       <input type="date" id="tgl_pinjam" name="tgl_pinjam" class="form-control" placeholder="Tanggal Peminjam"  value="{{ $Peminjaman->peminjam}}">
     </div>
     <div class="form-group mb-2">
-        <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
-        <input type="number" id="kode_barang" name="kode_barang" class="form-control" placeholder="Kode Barang" value="{{$Peminjaman->kode_barang}}">
+      <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
+      <select class="form-select" aria-label="Default select example" id="kode">
+          @foreach ($rekap as $pilihan)
+           <option id="select_{{$pilihan->kode}}" value="{{$pilihan->kode}} | {{$pilihan->aset}}">{{$pilihan->kode}}</option>
+          @endforeach
+      </select>
+      <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>
     </div>
+
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
-        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Barang" value="{{$Peminjaman->nama_barang}}">
+        <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{$Peminjaman->nama_barang}}" readonly>
     </div>
     <div class="form-group mb-2">
       <label for="year" class="col-sm-2 col-form-label">Tahun Perolehan</label>
@@ -53,7 +59,10 @@
     </div>
   </form>
   <script>
+    var kode = {{$Peminjaman->kode_barang}}
+    var nama = '{{$Peminjaman->nama_barang}}'
     var select = document.getElementById("kode");
+    var selectedItem = document.getElementById("select_" + kode);
     var inputKodeBarang = document.getElementById("kode_barang");
     var inputBarang = document.getElementById("nama_barang");
 
@@ -61,6 +70,10 @@
         inputKodeBarang.value = select.value.split(" | ")[0];
         inputBarang.value = select.value.split(" | ")[1];
     });
-  </script>
+
+    selectedItem.setAttribute('selected', true)
+    inputKodeBarang.value = kode
+    inputBarang.value = nama
+</script>
 
 @endsection

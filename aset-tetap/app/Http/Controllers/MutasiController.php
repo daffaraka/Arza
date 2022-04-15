@@ -48,7 +48,8 @@ class MutasiController extends Controller
      */
     public function create()
     {
-        return view('Mutasi.Create-Mutasi');
+        $rekap = Rekap::all();
+        return view('Mutasi.Create-Mutasi',compact('rekap'));
     }
 
     /**
@@ -98,7 +99,8 @@ class MutasiController extends Controller
     {
 
         $mutasi = Mutasi::findOrFail($id);
-        return view('Mutasi.Edit-Mutasi',compact('mutasi'));
+        $rekap = Rekap::all();
+        return view('Mutasi.Edit-Mutasi',compact(['mutasi','rekap']));
     }
 
     /**

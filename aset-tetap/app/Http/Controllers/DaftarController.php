@@ -98,8 +98,8 @@ class DaftarController extends Controller
     public function edit($id)
     {
         $Daftar = Daftar::findOrFail($id);
-
-        return view('Daftar.Edit-Daftar',compact('Daftar'));
+        $rekap = Rekap::all();
+        return view('Daftar.Edit-Daftar',compact(['Daftar','rekap']));
     }
 
     /**

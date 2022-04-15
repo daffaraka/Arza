@@ -14,10 +14,8 @@
     <div class="form-group mb-2">
       <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
       <select class="form-select" aria-label="Default select example" id="kode">
-          <option selected placeholder="{{$aset->kode_barang}}"></option>
           @foreach ($rekap as $pilihan)
            <option id="select_{{$pilihan->kode}}" value="{{$pilihan->kode}} | {{$pilihan->aset}}">{{$pilihan->kode}}</option>
-              <option value="{{$pilihan->kode}} | {{$pilihan->aset}}">{{$pilihan->kode}}</option>
           @endforeach
         </select>
       <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>
