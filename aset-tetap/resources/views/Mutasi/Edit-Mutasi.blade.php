@@ -1,17 +1,14 @@
 @extends('dashboard.layouts.main')
-<title>Buat Mutasi</title>
+<title>Edit Mutasi</title>
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Mutasi Barang</h1>
-    </div>
-
-    
-    <h5 class="mt-3 mb-3"> Tambah Mutasi Barang</h5>
-    <form action="{{ url('Mutasi/simpan_mutasi') }}" method="post">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Perbarui Mutasi Aset</h1>
+</div>
+    <form action="{{ url('/Mutasi/update_mutasi', $mutasi->id) }}" method="POST">
         {{ csrf_field() }}
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Register</label>
-            <input type="text" id="register" name="register" class="form-control" placeholder="Register">
+            <input type="text" id="register" name="register" class="form-control" placeholder="Register" value="{{$mutasi->register}}">
         </div>
         <div class="form-group mb-2">
             <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
@@ -31,41 +28,41 @@
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Merk</label>
-            <input type="text" id="merk" name="merk" class="form-control" placeholder="Merk">
+            <input type="text" id="merk" name="merk" class="form-control" placeholder="Merk" value="{{$mutasi->merk}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Bahan</label>
-            <input type="text" id="bahan" name="bahan" class="form-control" placeholder="Bahan">
+            <input type="text" id="bahan" name="bahan" class="form-control" placeholder="Bahan" value="{{$mutasi->bahan}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Cara Perolehan</label>
             <input type="text" id="cara_perolehan" name="cara_perolehan" class="form-control"
-                placeholder="Cara Perolehan">
+                placeholder="Cara Perolehan" value="{{$mutasi->cara_perolehan}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Ukuran Barang</label>
-            <input type="text" id="ukuran_barang" name="ukuran_barang" class="form-control" placeholder="Ukuran Barang">
+            <input type="text" id="ukuran_barang" name="ukuran_barang" class="form-control" placeholder="Ukuran Barang" value="{{$mutasi->ukuran_barang}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Satuan</label>
-            <input type="text" id="satuan" name="satuan" class="form-control" placeholder="Satuan">
+            <input type="text" id="satuan" name="satuan" class="form-control" placeholder="Satuan" value="{{$mutasi->satuan}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Kondisi</label>
-            <input type="text" id="kondisi" name="kondisi" class="form-control" placeholder="Kondisi">
+            <input type="text" id="kondisi" name="kondisi" class="form-control" placeholder="Kondisi" value="{{$mutasi->kondisi}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Barang</label>
-            <input type="text" id="barang" name="barang" class="form-control" placeholder="Barang">
+            <input type="text" id="barang" name="barang" class="form-control" placeholder="Barang" value="{{$mutasi->barang}}">
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Harga</label>
-            <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
+            <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga" value="{{$mutasi->harga}}">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
-
+        
         <script>
             var select = document.getElementById("kode");
             var inputKodeBarang = document.getElementById("kode_barang");
@@ -76,5 +73,7 @@
                 inputBarang.value = select.value.split(" | ")[1];
             });
         </script>
-    </form>
+  
+   
+
 @endsection

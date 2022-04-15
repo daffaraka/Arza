@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Aset;
+use App\Models\Rekap;
 use App\Exports\AsetExport;
 use App\Imports\AsetImport;
-use App\Models\Aset;
+use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AsetController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $aset = Aset::all();
@@ -40,24 +36,18 @@ class AsetController extends Controller
         return view('Aset.Cetak-Aset', compact('cetakaset'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
-        return view('Aset.Create-Aset');
+        $rekap = Rekap::all();
+        return view('Aset.Create-Aset',compact('rekap'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(Request $request)
     {
+
+        
         Aset::create([
             'kode_barang' => $request->kode_barang,
             'nama_barang' => $request->nama_barang,
@@ -68,36 +58,20 @@ class AsetController extends Controller
         return redirect('/Aset/index')->with('toast_success', 'Aset Tersimpan!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
         $aset = Aset::findorfail($id);
         return view('Aset.Edit-Aset', compact('aset'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request, $id)
     {
         $aset = Aset::findorfail($id);
@@ -105,12 +79,7 @@ class AsetController extends Controller
         return redirect('/Aset/index')->with('toast_success', 'Aset Berhasil Diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function destroy($id)
     {
         $aset = Aset::findorfail($id);

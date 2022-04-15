@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rekap;
+use App\Models\Daftar;
 use Illuminate\Http\Request;
 use App\Exports\DaftarExport;
 use App\Imports\DaftarImport;
-use App\Models\Daftar;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DaftarController extends Controller
@@ -46,8 +47,9 @@ class DaftarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('Daftar.Create-Daftar');
+    { 
+        $rekap = Rekap::all();
+        return view('Daftar.Create-Daftar',compact('rekap'));
     }
 
     /**
@@ -58,6 +60,7 @@ class DaftarController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         Daftar::create([
             'kode_barang' => $request->kode_barang,
             'register' => $request->register,
@@ -94,7 +97,9 @@ class DaftarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Daftar = Daftar::findOrFail($id);
+
+        return view('Daftar.Edit-Daftar',compact('Daftar'));
     }
 
     /**
@@ -106,7 +111,10 @@ class DaftarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+        $aset = Daftar::findorfail($id);
+        $aset->update($request->all());
+        return redirect('/Daftar/index')->with('toast_success', 'Daftar Aset Tetap Tersimpan!');
     }
 
     /**

@@ -111,3 +111,4 @@ Route::post('/Rekap/update/{id}',[RekapController::class,'update']);
 Route::get('/Rekap/Cetak-Rekap', [RekapController::class, 'cetakrekap' ]);
 
 Route::get('/Total/index', [TotalController::class, 'index' ]);
+

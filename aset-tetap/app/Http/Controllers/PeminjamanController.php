@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rekap;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 use App\Exports\PeminjamanExport;
 use App\Imports\PeminjamanImport;
-use App\Models\Peminjaman;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PeminjamanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
         $peminjaman = Peminjaman::all();
@@ -40,24 +37,17 @@ class PeminjamanController extends Controller
         return view('Peminjaman.Cetak-Peminjaman', compact('cetakpeminjaman'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        return view('Peminjaman.Create-Peminjaman');
+        $rekap = Rekap::all();
+        return view('Peminjaman.Create-Peminjaman',compact('rekap'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(Request $request)
     {
+        
         Peminjaman::create([
             'peminjam' => $request->peminjam,
             'tgl_pinjam' => $request->tgl_pinjam,
@@ -74,46 +64,29 @@ class PeminjamanController extends Controller
         return redirect('/Peminjaman/index')->with('toast_success', 'Peminjaman Tersimpan!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $Peminjaman = Peminjaman::findOrFail($id);
+
+        return view('Peminjaman.Edit-Peminjaman',compact('Peminjaman'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request, $id)
     {
-        //
+      
+        $aset = Peminjaman::findorfail($id);
+        $aset->update($request->all());
+        return redirect('/Peminjaman/index')->with('toast_success', 'Peminjaman Tersimpan!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         $peminjaman = Peminjaman::findorfail($id);

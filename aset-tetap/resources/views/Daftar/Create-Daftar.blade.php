@@ -7,18 +7,25 @@
 
 <h5 class="mt-3 mb-3"> Tambah Daftar Aset Tetap</h5>
   <form action="{{ url('Daftar/simpan_daftar')}}" method="post">
-    {{ csrf_field() }}
-    <div class="form-group mb-2">
-      <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
-      <input type="number" id="kode_barang" name="kode_barang" class="form-control" placeholder="Kode Barang">
-    </div>
+    {{ csrf_field() }} 
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Register</label>
       <input type="text" id="register" name="register" class="form-control" placeholder="Register">
     </div>
     <div class="form-group mb-2">
-      <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
-      <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Barang">
+      <label for="text" class="col-sm-2 col-form-label">Kode Barang</label>
+      <select class="form-select" aria-label="Default select example" id="kode">
+          <option selected disabled>- Pilih Kode -</option>
+          @foreach ($rekap as $a)
+           <option value="{{$a->id}} | {{$a->aset}}">{{$a->id}}</option>
+          @endforeach
+      </select>
+      <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>
+    </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
+        <input type="text" id="nama" name="nama" class="form-control"
+            placeholder="Pilih Kode Barang terlebih dahulu (Input ini otomatis akan terisi Nama Barang)" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Merk/Type Barang</label>
@@ -60,5 +67,14 @@
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </form>
+  <script>
+    var select = document.getElementById("kode");
+    var inputKodeBarang = document.getElementById("kode_barang");
+    var inputBarang = document.getElementById("nama");
 
+    select.addEventListener("change", function() {
+        inputKodeBarang.value = select.value.split(" | ")[0];
+        inputBarang.value = select.value.split(" | ")[1];
+    });
+</script>
 @endsection

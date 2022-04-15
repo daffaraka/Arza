@@ -14,7 +14,6 @@
 <h5 class="mt-3 mb-3"> Edit Rekap </h5>
 
   <form action="{{ url('/Rekap/update/{id}', $rekapData->id) }}" method="POST">
-    
     @csrf
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Jumlah</label>

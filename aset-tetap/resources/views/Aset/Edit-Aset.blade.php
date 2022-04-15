@@ -10,25 +10,26 @@
   <form action="{{ url('Aset/update_aset', $aset->id) }}" method="POST">
     
     {{ csrf_field() }}
-    <div class="form-group mb-2">
-      <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
-      <input type="number" id="kode_barang" name="kode_barang" class="form-control" placeholder="Kode Barang">
-    </div>
+  
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Register</label>
       <input type="text" id="register" name="register" class="form-control" placeholder="Register">
     </div>
     <div class="form-group mb-2">
+      <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
+      <input type="number" id="kode_barang" name="kode_barang" class="form-control" placeholder="Kode Barang" value="{{$aset->kode_barang}}">
+    </div>
+    <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
-      <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="Nama Barang">
+      <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{$aset->nama_barang}}">
     </div>
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Jumlah</label>
-      <input type="text" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah">
+      <input type="text" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah" value="{{$aset->jumlah}}">
     </div>
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Harga</label>
-      <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
+      <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga"  value="{{$aset->harga}}">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Ubah</button>

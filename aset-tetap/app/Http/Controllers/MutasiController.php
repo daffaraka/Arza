@@ -59,6 +59,7 @@ class MutasiController extends Controller
      */
     public function store(Request $request)
     {
+        
         Mutasi::create([
             'kode_barang' => $request->kode_barang,
             'register' => $request->register,
@@ -95,7 +96,9 @@ class MutasiController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $mutasi = Mutasi::findOrFail($id);
+        return view('Mutasi.Edit-Mutasi',compact('mutasi'));
     }
 
     /**
@@ -107,7 +110,10 @@ class MutasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $aset = Mutasi::findorfail($id);
+        $aset->update($request->all());
+        return redirect('/Mutasi/index')->with('toast_success', 'Mutasi Barang Tersimpan!');
     }
 
     /**
