@@ -90,7 +90,8 @@ class JurnalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jurnal = Jurnal::findOrFail($id);
+        return view('Jurnal.Edit-Jurnal',compact('jurnal'));
     }
 
     /**
@@ -102,7 +103,10 @@ class JurnalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jurnal = Jurnal::findOrFail($id);
+        $jurnal->update($request->all());
+        return redirect('/Jurnal/index')->with('toast_success', 'Jurnal Tersimpan!');
+
     }
 
     /**

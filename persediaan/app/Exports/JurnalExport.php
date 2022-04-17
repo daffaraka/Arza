@@ -4,8 +4,9 @@ namespace App\Exports;
 
 use App\Models\Jurnal;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class JurnalExport implements FromCollection
+class JurnalExport implements FromCollection,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -13,5 +14,10 @@ class JurnalExport implements FromCollection
     public function collection()
     {
         return Jurnal::all();
+    }
+
+    public function headings(): array
+    {
+        return ["your", "headings", "here"];
     }
 }

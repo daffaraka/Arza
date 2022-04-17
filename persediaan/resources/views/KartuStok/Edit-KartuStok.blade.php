@@ -6,7 +6,7 @@
 </div>
 
 <h5 class="mt-3 mb-3"> Edit Kartu Stok</h5>
-  <form action="{{ url('KartuStok/simpan_kartustok')}}" method="post">
+  <form action="{{ url('KartuStok/update_kartustok',$kartustok->id)}}" method="post">
     {{ csrf_field() }}
     <div class="form-group mb-2">
         <label for="date" class="col-sm-2 col-form-label">Tanggal</label>
