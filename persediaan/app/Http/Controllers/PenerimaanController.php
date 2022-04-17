@@ -93,7 +93,8 @@ class PenerimaanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $penerimaan = Penerimaan::findOrFail($id);
+        return view('Penerimaan.Edit-Penerimaan', compact('penerimaan'));
     }
 
     /**

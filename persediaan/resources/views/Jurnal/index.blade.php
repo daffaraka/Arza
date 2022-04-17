@@ -46,7 +46,6 @@
     <table class="table table-bordered">
       <tr>
         <th>Tanggal</th>
-        <th>Transaksi</th>
         <th>Uraian</th>
         <th>Debit</th>
         <th>Kredit</th>
@@ -55,7 +54,6 @@
       @foreach ($jurnal as $item)
       <tr>
         <td>{{ $item->tanggal }}</td>
-        <td>{{ $item->transaksi }}</td>
         <td>{{ $item->uraian }}</td>
         <td>{{ $item->debit }}</td>
         <td>{{ $item->kredit }}</td>

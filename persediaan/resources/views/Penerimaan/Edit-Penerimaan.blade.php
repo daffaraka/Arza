@@ -7,7 +7,7 @@
 
 <h5 class="mt-3 mb-3"> Edit Persediaan Barang Habis Pakai</h5>
 
-  <form action="{{ url('Penerimaan/update_penerimaan', $penerimaan->id) }}" method="POST">
+  <form action="{{ url('Penerimaan/update_penerimaan', $penerimaan ?? ''->id) }}" method="POST">
     
     {{ csrf_field() }}
     <div class="form-group mb-2">
@@ -32,7 +32,7 @@
       </div>
       <div class="form-group mb-2">
           <label for="number" class="col-sm-2 col-form-label">Banyaknya</label>
-          <input type="number" id="banyak" name="banyak" class="form-control" placeholder="Banyaknya" value="{{ $penerimaan->banyak }}">
+          <input type="number" id="banyak" name="banyak" class="form-control" placeholder="Banyaknya" value="{{ $penerimaan->banyaknya }}">
       </div>
       <div class="form-group mb-2">
           <label for="number" class="col-sm-2 col-form-label">Harga Satuan</label>
@@ -40,7 +40,7 @@
       </div>
       <div class="form-group mb-2">
           <label for="number" class="col-sm-2 col-form-label">Jumlah Harga</label>
-          <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah Harga" value="{{ $penerimaan->jumlah_harga }}">
+          <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah Harga" value="{{ $penerimaan->jumlah_harga }}" readonly>
       </div>
       <div class="form-group mb-2">
           <label for="date" class="col-sm-2 col-form-label">Tanggal Penerimaan</label>
@@ -49,6 +49,28 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Ubah</button>
     </div>
+
+    <script>
+      var inputBanyak = document.getElementById("banyak");
+      var inputHarga = document.getElementById("harga");
+      var inputJumlah = document.getElementById("jumlah");
+
+      function totalBiaya() {
+          if (inputBanyak.value && inputHarga.value) {
+            inputJumlah.value = parseInt(inputBanyak.value) * parseInt(inputHarga.value);
+          } else {
+            inputJumlah.value = null;
+          }
+      }
+
+      inputBanyak.addEventListener("keyup", function() {
+          totalBiaya()
+      });
+
+      inputHarga.addEventListener("keyup", function() {
+          totalBiaya()
+      });
+    </script>
   </form>
 
 @endsection

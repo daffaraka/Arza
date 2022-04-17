@@ -15,7 +15,7 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Periode Triwulan</label>
       <select class="form-control select2 input-lg" name="periode_triwulan" id="periode_triwulan" >
-        <option>Pilih Salah Satu</option>
+        <option selected disabled>Pilih Salah Satu</option>
         <option value="Triwulan 1" >Triwulan 1</option>
         <option value="Triwulan 2" >Triwulan 2</option>
         <option value="Triwulan 3" >Triwulan 3</option>
@@ -36,7 +36,7 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Bulan 1</label>
       <select class="form-control select2 input-lg" name="bulan1" id="bulan1" >
-        <option>Pilih Salah Satu</option>
+        <option selected disabled>Pilih Salah Satu</option>
         <option value="Januari" >Januari</option>
         <option value="Februari" >Februari</option>
         <option value="Maret" >Maret</option>
@@ -58,7 +58,7 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Bulan 2</label>
       <select class="form-control select2 input-lg" name="bulan2" id="bulan2" >
-        <option>Pilih Salah Satu</option>
+        <option selected disabled>Pilih Salah Satu</option>
         <option value="Januari" >Januari</option>
         <option value="Februari" >Februari</option>
         <option value="Maret" >Maret</option>
@@ -80,7 +80,7 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Bulan 3</label>
       <select class="form-control select2 input-lg" name="bulan3" id="bulan3" >
-        <option>Pilih Salah Satu</option>
+        <option selected disabled>Pilih Salah Satu</option>
         <option value="Januari" >Januari</option>
         <option value="Februari" >Februari</option>
         <option value="Maret" >Maret</option>
@@ -98,6 +98,28 @@
     <div class="form-group mb-2">
       <label for="number" class="col-sm-2 col-form-label">Nominal 3</label>
       <input type="number" id="nominal_bulan3" name="nominal_bulan3" class="form-control" placeholder="Nominal 3">
+    </div>
+    <div class="form-group mb-3">
+      <label for="text" class="col-sm-2 col-form-label">Bulan 4</label>
+      <select class="form-control select2 input-lg" name="bulan4" id="bulan4" >
+        <option selected disabled>Pilih Salah Satu</option>
+        <option value="Januari" >Januari</option>
+        <option value="Februari" >Februari</option>
+        <option value="Maret" >Maret</option>
+        <option value="April" >April</option>
+        <option value="Mei" >Mei</option>
+        <option value="Juni" >Juni</option>
+        <option value="Juli" >Juli</option>
+        <option value="Agustus" >Agustus</option>
+        <option value="September" >September</option>
+        <option value="Oktober" >Oktober</option>
+        <option value="November" >November</option>
+        <option value="Desember" >Desember</option>
+    </select>
+    </div>
+    <div class="form-group mb-2">
+      <label for="number" class="col-sm-2 col-form-label">Nominal 4</label>
+      <input type="number" id="nominal_bulan4" name="nominal_bulan4" class="form-control" placeholder="Nominal 4">
     </div>
     <div class="form-group mb-2">
       <label for="number" class="col-sm-2 col-form-label">Jumlah SPD</label>

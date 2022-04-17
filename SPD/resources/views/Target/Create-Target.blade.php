@@ -15,7 +15,7 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Periode Triwulan</label>
       <select class="form-control select2 input-lg" name="triwulanke" id="triwulanke" >
-        <option>Pilih Salah Satu</option>
+        <option selected disabled>Pilih Salah Satu</option>
         <option value="Triwulan 1" >Triwulan 1</option>
         <option value="Triwulan 2" >Triwulan 2</option>
         <option value="Triwulan 3" >Triwulan 3</option>
