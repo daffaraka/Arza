@@ -20,36 +20,48 @@
     </div>
       <div class="form-group mb-2">
           <label for="date" class="col-sm-2 col-form-label">Tanggal Faktur</label>
-          <input type="date" id="tanggal_faktur" name="tanggal" class="form-control" placeholder="Tanggal Faktur" value="{{ $penerimaan->tanggal_faktur }}">
+          <input type="date" id="tanggal_faktur" name="tanggal_faktur" class="form-control" placeholder="Tanggal Faktur" value="{{ $penerimaan->tanggal_faktur }}">
       </div>
       <div class="form-group mb-2">
           <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
-          <input type="text" id="nama_barang" name="nama" class="form-control" placeholder="Nama Barang" value="{{ $penerimaan->nama_barang }}">
+          <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{ $penerimaan->nama_barang }}">
       </div>
       <div class="form-group mb-2">
           <label for="text" class="col-sm-2 col-form-label">Sumber Dana</label>
-          <input type="text" id="sumber_dana" name="sumber" class="form-control" placeholder="Sumber Dana" value="{{ $penerimaan->sumber_dana }}">
+          <input type="text" id="sumber_dana" name="sumber_dana" class="form-control" placeholder="Sumber Dana" value="{{ $penerimaan->sumber_dana }}">
       </div>
       <div class="form-group mb-2">
           <label for="number" class="col-sm-2 col-form-label">Banyaknya</label>
-          <input type="number" id="banyak" name="banyak" class="form-control" placeholder="Banyaknya" value="{{ $penerimaan->banyaknya }}">
+          <input type="number" id="banyak" name="banyaknya" class="form-control" placeholder="Banyaknya" value="{{ $penerimaan->banyaknya }}">
       </div>
       <div class="form-group mb-2">
           <label for="number" class="col-sm-2 col-form-label">Harga Satuan</label>
-          <input type="number" id="harga" name="harga" class="form-control" placeholder="Harga Satuan" value="{{ $penerimaan->harga_satuan }}">
+          <input type="number" id="harga" name="harga_satuan" class="form-control" placeholder="Harga Satuan" value="{{ $penerimaan->harga_satuan }}">
       </div>
       <div class="form-group mb-2">
           <label for="number" class="col-sm-2 col-form-label">Jumlah Harga</label>
-          <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah Harga" value="{{ $penerimaan->jumlah_harga }}" readonly>
+          <input type="number" id="jumlah" name="jumlah_harga" class="form-control" placeholder="Jumlah Harga" value="{{ $penerimaan->jumlah_harga }}" readonly>
       </div>
       <div class="form-group mb-2">
           <label for="date" class="col-sm-2 col-form-label">Tanggal Penerimaan</label>
-          <input type="date" id="tanggal" name="tanggal" class="form-control" placeholder="Tanggal Penerimaan" value="{{ $penerimaan->tanggal_penerimaan }}">
+          <input type="date" id="tanggal" name="tanggal_penerimaan" class="form-control" placeholder="Tanggal Penerimaan" value="{{ $penerimaan->tanggal_penerimaan }}">
       </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Ubah</button>
-    </div>
-
+   
+      <div class="form-group mb-3">
+        <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
+        <select class="form-control select2 input-lg" name="keterangan" id="keterangan" >
+          <option selected disabled>Silahkan Pilih</option>
+          <option value="Alat Tulis Kantor" >Alat Tulis Kantor</option>
+          <option value="Belanja Alat Cetak Kantor" >Belanja Alat Cetak Kantor</option>
+          <option value="Belanja Alat Listrik Kantor" >Belanja Alat Listrik Kantor</option>
+          <option value="Belanja Kegiatan Kantor Lainnya" >Belanja Kegiatan Kantor Lainnya</option>
+          <option value="Belanja Materai dan Benda Pos Lainnya" >Belanja Materai dan Benda Pos Lainnya</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Ubah</button>
+      </div>
     <script>
       var inputBanyak = document.getElementById("banyak");
       var inputHarga = document.getElementById("harga");

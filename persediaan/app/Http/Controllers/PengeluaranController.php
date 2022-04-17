@@ -91,7 +91,8 @@ class PengeluaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        return view('Pengeluaran.Edit-Pengeluaran',compact('pengeluaran'));
     }
 
     /**
@@ -103,7 +104,10 @@ class PengeluaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $pengeluaran->update($request->all());
+
+        return redirect('/Pengeluaran/index')->with('toast_success', 'Pengeluaran Tersimpan!');
     }
 
     /**

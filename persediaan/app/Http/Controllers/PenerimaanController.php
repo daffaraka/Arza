@@ -97,24 +97,17 @@ class PenerimaanController extends Controller
         return view('Penerimaan.Edit-Penerimaan', compact('penerimaan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
-        //
+        
+        $penerimaan = Penerimaan::findOrFail($id);
+        $penerimaan->update($request->all());
+
+        return redirect('/Penerimaan/index')->with('toast_success', 'Penerimaan Tersimpan!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         $penerimaan = Penerimaan::findorfail($id);
