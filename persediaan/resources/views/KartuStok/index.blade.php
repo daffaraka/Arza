@@ -43,14 +43,14 @@
           <td>{{ $item->tanggal }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td>{{ $item->unit_pemasukan }}</td>
-          <td>{{ $item->harga_per_unit_pemasukan }}</td>
-          <td>{{ $item->total_harga_pemasukan }}</td>
+          <td>Rp {{ $item->harga_per_unit_pemasukan }}</td>
+          <td>Rp {{ $item->total_harga_pemasukan }}</td>
           <td>{{ $item->unit_pengeluaran }}</td>
-          <td>{{ $item->harga_per_unit_pengeluaran }}</td>
-          <td>{{ $item->total_harga_pengeluaran }}</td>
+          <td>Rp {{ $item->harga_per_unit_pengeluaran }}</td>
+          <td>Rp {{ $item->total_harga_pengeluaran }}</td>
           <td>{{ $item->unit_persediaan }}</td>
-          <td>{{ $item->harga_per_unit_persediaan }}</td>
-          <td>{{ $item->total_harga_persediaan }}</td>
+          <td>Rp {{ $item->harga_per_unit_persediaan }}</td>
+          <td>Rp {{ $item->total_harga_persediaan }}</td>
           <td>{{ $item->keterangan }}</td>
           <td>
             <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
