@@ -73,14 +73,14 @@ class PeminjamanController extends Controller
     public function edit($id)
     {
         $Peminjaman = Peminjaman::findOrFail($id);
-
-        return view('Peminjaman.Edit-Peminjaman',compact('Peminjaman'));
+        $rekap = Rekap::all();
+        return view('Peminjaman.Edit-Peminjaman',compact(['Peminjaman','rekap']));
     }
 
   
     public function update(Request $request, $id)
     {
-      
+        
         $aset = Peminjaman::findorfail($id);
         $aset->update($request->all());
         return redirect('/Peminjaman/index')->with('toast_success', 'Peminjaman Tersimpan!');

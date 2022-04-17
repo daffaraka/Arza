@@ -67,14 +67,33 @@
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </form>
-  <script>
-    var select = document.getElementById("kode");
-    var inputKodeBarang = document.getElementById("kode_barang");
-    var inputBarang = document.getElementById("nama");
+    <script>
+        var select = document.getElementById("kode");
+        var inputKodeBarang = document.getElementById("kode_barang");
+        var inputBarang = document.getElementById("nama");
+        var inputUmur = document.getElementById("umur_ekonomis");
+        var inputHarga = document.getElementById("harga_beli");
+        var inputPeny = document.getElementById("biaya_peny");
 
-    select.addEventListener("change", function() {
-        inputKodeBarang.value = select.value.split(" | ")[0];
-        inputBarang.value = select.value.split(" | ")[1];
-    });
-</script>
+        select.addEventListener("change", function() {
+            inputKodeBarang.value = select.value.split(" | ")[0];
+            inputBarang.value = select.value.split(" | ")[1];
+        });
+
+        function totalBiaya() {
+            if (inputUmur.value && inputHarga.value) {
+                inputPeny.value = inputHarga.value / inputUmur.value;
+            } else {
+                inputPeny.value = null;
+            }
+        }
+
+        inputUmur.addEventListener("keyup", function() {
+            totalBiaya()
+        });
+
+        inputHarga.addEventListener("keyup", function() {
+            totalBiaya()
+        });
+    </script>
 @endsection

@@ -75,6 +75,7 @@ class AsetController extends Controller
   
     public function update(Request $request, $id)
     {
+       
         $aset = Aset::findorfail($id);
         $aset->update($request->all());
         return redirect('/Aset/index')->with('toast_success', 'Aset Berhasil Diperbarui!');

@@ -13,18 +13,18 @@
         <div class="form-group mb-2">
             <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
             <select class="form-select" aria-label="Default select example" id="kode">
-                <option selected disabled>- Pilih Kode -</option>
-                <option value="1,01 | Tanah Kota">1,01</option>
-                <option value="1,02 | Alat Berat">1,02</option>
-                <option value="1,03 | Baju">1,03</option>
+                @foreach ($rekap as $pilihan)
+                 <option id="select_{{$pilihan->kode}}" value="{{$pilihan->kode}} | {{$pilihan->aset}}">{{$pilihan->kode}}</option>
+                @endforeach
             </select>
             <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>
         </div>
       
+      
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
             <input type="text" id="nama" name="nama" class="form-control"
-                placeholder="Pilih Kode Barang terlebih dahulu (Input ini otomatis akan terisi Nama Barang)" readonly>
+                placeholder="Pilih Kode Barang terlebih dahulu (Input ini otomatis akan terisi Nama Barang)" value="{{$mutasi->nama}}" readonly>
         </div>
         <div class="form-group mb-2">
             <label for="text" class="col-sm-2 col-form-label">Merk</label>
@@ -64,7 +64,10 @@
         </div>
         
         <script>
+            var kode = {{$mutasi->kode_barang}}
+            var nama = '{{$mutasi->nama}}'
             var select = document.getElementById("kode");
+            var selectedItem = document.getElementById("select_" + kode);
             var inputKodeBarang = document.getElementById("kode_barang");
             var inputBarang = document.getElementById("nama");
 
@@ -72,6 +75,10 @@
                 inputKodeBarang.value = select.value.split(" | ")[0];
                 inputBarang.value = select.value.split(" | ")[1];
             });
+
+            selectedItem.setAttribute('selected', true)
+            inputKodeBarang.value = kode
+            inputBarang.value = nama
         </script>
   
    

@@ -14,12 +14,12 @@
             <input type="text" id="register" name="register" class="form-control" placeholder="Register">
         </div>
         <div class="form-group mb-2">
-            <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
+            <label for="text" class="col-sm-2 col-form-label">Kode Barang</label>
             <select class="form-select" aria-label="Default select example" id="kode">
                 <option selected disabled>- Pilih Kode -</option>
-                <option value="1,01 | Tanah Kota">1,01</option>
-                <option value="1,02 | Alat Berat">1,02</option>
-                <option value="1,03 | Baju">1,03</option>
+                @foreach ($rekap as $a)
+                 <option value="{{$a->kode}} | {{$a->aset}}">{{$a->kode}}</option>
+                @endforeach
             </select>
             <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>
         </div>

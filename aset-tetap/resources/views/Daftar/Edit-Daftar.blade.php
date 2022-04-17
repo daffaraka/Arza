@@ -8,17 +8,27 @@
 <h5 class="mt-3 mb-3"> Tambah Daftar Aset Tetap</h5>
   <form action="{{ url('Daftar/update_daftar',$Daftar->id)}}" method="post">
     {{ csrf_field() }}
-    <div class="form-group mb-2">
-      <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
-      <input type="number" id="kode_barang" name="kode_barang" class="form-control" placeholder="Kode Barang" value="{{$Daftar->kode_barang}}">
-    </div>
+
+
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Register</label>
       <input type="text" id="register" name="register" class="form-control" placeholder="Register" value="{{$Daftar->register}}">
     </div>
+
+    <div class="form-group mb-2">
+      <label for="number" class="col-sm-2 col-form-label">Kode Barang</label>
+      <select class="form-select" aria-label="Default select example" id="kode">
+          @foreach ($rekap as $pilihan)
+           <option id="select_{{$pilihan->kode}}" value="{{$pilihan->kode}} | {{$pilihan->aset}}">{{$pilihan->kode}}</option>
+          @endforeach
+      </select>
+      <input type="text" id="kode_barang" name="kode_barang" class="d-none" placeholder="Kode Barang" readonly>
+    </div>
+
+  
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
-      <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Barang" value="{{$Daftar->nama}}">
+      <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Barang" value="{{$Daftar->nama}}" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Merk/Type Barang</label>
@@ -61,4 +71,22 @@
     </div>
   </form>
 
+
+  <script>
+    var kode = {{$Daftar->kode_barang}}
+    var nama = '{{$Daftar->nama}}'
+    var select = document.getElementById("kode");
+    var selectedItem = document.getElementById("select_" + kode);
+    var inputKodeBarang = document.getElementById("kode_barang");
+    var inputBarang = document.getElementById("nama");
+
+    select.addEventListener("change", function() {
+        inputKodeBarang.value = select.value.split(" | ")[0];
+        inputBarang.value = select.value.split(" | ")[1];
+    });
+
+    selectedItem.setAttribute('selected', true)
+    inputKodeBarang.value = kode
+    inputBarang.value = nama
+</script>
 @endsection
