@@ -95,7 +95,9 @@ class KartuStokController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kartuStok = KartuStok::find($id);
+
+        return view('kartuStok.Edit-KartuStok',compact('kartuStock'));
     }
 
     /**

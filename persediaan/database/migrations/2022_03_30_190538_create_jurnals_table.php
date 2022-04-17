@@ -17,7 +17,8 @@ class CreateJurnalsTable extends Migration
             $table->id();
             $table->date('tanggal', 100);
             $table->string('transaksi', 100);
-            $table->string('uraian', 100);
+            $table->string('uraian_debit', 100);
+            $table->string('uraian_kredit', 100);
             $table->string('debit', 100);
             $table->string('kredit', 100);
             $table->timestamps();

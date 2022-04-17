@@ -21,16 +21,20 @@
       </select>
     </div>
     <div class="form-group mb-2">
-        <label for="text" class="col-sm-2 col-form-label">Uraian Debit</label>
-        <input type="text" id="uraian" name="uraian" class="form-control" placeholder="Uraian">
+        <label for="text" class="col-sm-2 col-form-label">Keterangan Debit</label>
+        <input type="text" id="uraian" name="uraian_debit" class="form-control" placeholder="Uraian">
     </div>
     <div class="form-group mb-2">
-      <label for="text" class="col-sm-2 col-form-label">Uraian Kredit</label>
-      <input type="text" id="uraian" name="uraian" class="form-control" placeholder="Uraian">
+      <label for="text" class="col-sm-2 col-form-label">Keterangan Kredit</label>
+      <input type="text" id="uraian" name="uraian_kredit" class="form-control" placeholder="Uraian">
   </div>
     <div class="form-group mb-2">
-        <label for="text" class="col-sm-2 col-form-label">Debit</label>
-        <input type="text" id="debit" name="debit" class="form-control" placeholder="Debit">
+      <label for="text" class="col-sm-2 col-form-label"> Debit</label>
+      <input type="text" id="uraian" name="debit" class="form-control" placeholder="Uraian">
+  </div>
+    <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Kredit</label>
+        <input type="text" id="debit" name="kredit" class="form-control" placeholder="Debit">
     </div>
     {{-- <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Kredit</label>

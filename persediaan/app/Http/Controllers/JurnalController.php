@@ -58,10 +58,12 @@ class JurnalController extends Controller
      */
     public function store(Request $request)
     {
+        
         Jurnal::create([
             'tanggal'=>$request->tanggal,
             'transaksi'=>$request->transaksi,
-            'uraian'=>$request->uraian,
+            'uraian_debit'=>$request->uraian_debit,
+            'uraian_kredit'=>$request->uraian_kredit,
             'debit'=>$request->debit,
             'kredit'=>$request->debit,
         ]);
