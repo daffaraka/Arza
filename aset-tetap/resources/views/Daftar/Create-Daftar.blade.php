@@ -45,7 +45,7 @@
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Biaya Penyusutan</label>
-        <input type="text" id="biaya_peny" name="biaya_peny" class="form-control" placeholder="Biaya Penyusutan">
+        <input type="text" id="biaya_peny" name="biaya_peny" class="form-control" placeholder="Biaya Penyusutan" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Jumlah Barang</label>
@@ -54,7 +54,7 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Kondisi Barang</label>
       <select class="form-control select2 input-lg" name="kondisi" id="kondisi" >
-        <option>Pilih Salah Satu</option>
+        <option selected disabled>Pilih Salah Satu</option>
         <option value="B" >Baik</option>
         <option value="KB" >Kurang Baik</option>
       </select>

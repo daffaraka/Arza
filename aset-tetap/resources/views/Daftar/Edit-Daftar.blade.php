@@ -48,7 +48,7 @@
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Biaya Penyusutan</label>
-        <input type="text" id="biaya_peny" name="biaya_peny" class="form-control" placeholder="Biaya Penyusutan" value="{{$Daftar->biaya_peny}}">
+        <input type="text" id="biaya_peny" name="biaya_peny" class="form-control" placeholder="Biaya Penyusutan" value="{{$Daftar->biaya_peny}}" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Jumlah Barang</label>
@@ -57,9 +57,9 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Kondisi Barang</label>
       <select class="form-control select2 input-lg" name="kondisi" id="kondisi" >
-        <option>Pilih Salah Satu</option>
-        <option value="B" >Baik</option>
-        <option value="KB" >Kurang Baik</option>
+        <option selected disabled>Pilih Salah Satu</option>
+        <option id="kondisi_B" value="B">Baik</option>
+        <option id="kondisi_KB" value="KB">Kurang Baik</option>
       </select>
     </div>
     <div class="form-group mb-2">
@@ -74,18 +74,41 @@
 
   <script>
     var kode = {{$Daftar->kode_barang}}
+    var kondisi = "{{$Daftar->kondisi}}"
     var nama = '{{$Daftar->nama}}'
     var select = document.getElementById("kode");
     var selectedItem = document.getElementById("select_" + kode);
+    var selectedItemKondisi = document.getElementById("kondisi_" + kondisi);
     var inputKodeBarang = document.getElementById("kode_barang");
+    var inputKondisi = document.getElementById("kondisi");
     var inputBarang = document.getElementById("nama");
+    var inputUmur = document.getElementById("umur_ekonomis");
+    var inputHarga = document.getElementById("harga_beli");
+    var inputPeny = document.getElementById("biaya_peny");
 
     select.addEventListener("change", function() {
         inputKodeBarang.value = select.value.split(" | ")[0];
         inputBarang.value = select.value.split(" | ")[1];
     });
 
+    function totalBiaya() {
+        if (inputUmur.value && inputHarga.value) {
+            inputPeny.value = inputHarga.value / inputUmur.value;
+        } else {
+            inputPeny.value = null;
+        }
+    }
+
+    inputUmur.addEventListener("keyup", function() {
+        totalBiaya()
+    });
+
+    inputHarga.addEventListener("keyup", function() {
+        totalBiaya()
+    });
+
     selectedItem.setAttribute('selected', true)
+    selectedItemKondisi.setAttribute('selected', true)
     inputKodeBarang.value = kode
     inputBarang.value = nama
 </script>
