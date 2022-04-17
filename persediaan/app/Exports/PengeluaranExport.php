@@ -18,6 +18,16 @@ class PengeluaranExport implements FromCollection,WithHeadings
 
     public function headings(): array
     {
-        return ["your", "headings", "here"];
+        return  [
+            "No",
+            "Nama Barang",
+            "Sumber Dana",
+            "Banyaknya",
+            "Harga Satuan",
+            "Jumlah Harga",
+            "Untuk",
+            "Tanggal Penyerahan",
+            "Keterangan",
+        ];
     }
 }

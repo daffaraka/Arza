@@ -6,6 +6,8 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <a href="/KartuStok/Cetak-KartuStok" target="_blank" class="btn btn-sm btn-outline-secondary">PDF<span data-feather="printer"></span></a>
+      <a href="/KartuStok/Export-KartuStok" target="_blank" class="btn btn-sm btn-outline-secondary">Export <span data-feather="printer"></span></a>
+
     </div>
   </div>
 </div>
