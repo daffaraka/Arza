@@ -50,12 +50,12 @@
       <div class="form-group mb-3">
         <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
         <select class="form-control select2 input-lg" name="keterangan" id="keterangan" >
-          <option selected disabled>Silahkan Pilih</option>
-          <option value="Alat Tulis Kantor" >Alat Tulis Kantor</option>
-          <option value="Belanja Alat Cetak Kantor" >Belanja Alat Cetak Kantor</option>
-          <option value="Belanja Alat Listrik Kantor" >Belanja Alat Listrik Kantor</option>
-          <option value="Belanja Kegiatan Kantor Lainnya" >Belanja Kegiatan Kantor Lainnya</option>
-          <option value="Belanja Materai dan Benda Pos Lainnya" >Belanja Materai dan Benda Pos Lainnya</option>
+          <option disabled>Silahkan Pilih</option>
+          <option {{ ( $penerimaan->keterangan == "Alat Tulis Kantor") ? 'selected' : '' }} value="Alat Tulis Kantor" >Alat Tulis Kantor</option>
+          <option {{ ( $penerimaan->keterangan == "Belanja Alat Cetak Kantor") ? 'selected' : '' }} value="Belanja Alat Cetak Kantor" >Belanja Alat Cetak Kantor</option>
+          <option {{ ( $penerimaan->keterangan == "Belanja Alat Listrik Kantor") ? 'selected' : '' }} value="Belanja Alat Listrik Kantor" >Belanja Alat Listrik Kantor</option>
+          <option {{ ( $penerimaan->keterangan == "Belanja Kegiatan Kantor Lainnya") ? 'selected' : '' }} value="Belanja Kegiatan Kantor Lainnya" >Belanja Kegiatan Kantor Lainnya</option>
+          <option {{ ( $penerimaan->keterangan == "Belanja Materai dan Benda Pos Lainnya") ? 'selected' : '' }} value="Belanja Materai dan Benda Pos Lainnya" >Belanja Materai dan Benda Pos Lainnya</option>
         </select>
       </div>
       

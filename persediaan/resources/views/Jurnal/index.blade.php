@@ -46,27 +46,68 @@
     <table class="table table-bordered">
       <tr>
         <th>Tanggal</th>
-        <th>Uraian</th>
+        <th>Keterangan</th>
         <th>Debit</th>
         <th>Kredit</th>
         <th>Action</th>
       </tr>
       @foreach ($jurnal as $item)
       <tr>
-        <td>{{ $item->tanggal }}</td>
-        <td>{{ $item->uraian }}</td>
-        <td>{{ $item->debit }}</td>
-        <td>{{ $item->kredit }}</td>
-        <td>
+        <td rowspan="2">{{ $item->tanggal }}</td>
+        <td>{{ $item->uraian_debit }}</td>
+        <td>Rp {{ $item->debit }}</td>
+        <td></td>
+        <td rowspan="2">
           <a href="{{ url('/Jurnal/Edit-Jurnal', $item->id) }}"><span data-feather="edit"></span></a>
           | 
           <a href="{{ url('/Jurnal/delete-jurnal', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
         </td>
       </tr>
+      <tr>
+        <td>{{ $item->uraian_debit }}</td>
+        <td></td>
+        <td>Rp {{ $item->kredit }}</td>
+      </tr>
       @endforeach
+      <tr class="fw-bold" style="background-color: #f7f7f7;">
+        <td colspan="2">Total</td>
+        <td id="total_debit"></td>
+        <td id="total_kredit"></td>
+        <td>
+          -
+        </td>
+      </tr>
     </table>
   </div>
 </div>
+
+<script>
+  var jurnal = {!! json_encode($jurnal) !!};
+  var debit = document.getElementById("total_debit");
+  var kredit = document.getElementById("total_kredit");
+  var dataDebit = [];
+  var dataKredit = [];
+
+  if (jurnal.length > 0) {
+      for (let i = 0; i < jurnal.length; i++) {
+        dataDebit.push(parseInt(jurnal[i].debit))
+        dataKredit.push(parseInt(jurnal[i].kredit))
+      }
+  } else {
+    dataDebit.push(0)
+    dataKredit.push(0)
+  }
+
+  const sumDebit = dataDebit.reduce(add, 0);
+  const sumKredit = dataKredit.reduce(add, 0);
+
+  function add(val, a) {
+      return val + a;
+  }
+
+  debit.innerHTML = `Rp ${sumDebit}`
+  kredit.innerHTML = `Rp ${sumKredit}`
+</script>
 
 @include('sweetalert::alert')
 </div>

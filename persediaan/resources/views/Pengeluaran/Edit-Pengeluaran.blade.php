@@ -15,8 +15,8 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Sumber Dana</label>
       <select class="form-control select2 input-lg" name="sumber_dana" id="sumber_dana" >
-        <option>Silahkan Pilih</option>
-        <option value="APBD" >APBD</option>
+        <option disabled>Silahkan Pilih</option>
+        <option {{($pengeluaran->nama_barang == "APBD" ? 'selected' : '')}} value="APBD" >APBD</option>
       </select>
     </div>
     <div class="form-group mb-2">
@@ -29,13 +29,13 @@
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Jumlah Harga</label>
-        <input type="text" id="jumlah_harga" name="jumlah_harga" class="form-control" placeholder="Jumlah Harga" value="{{$pengeluaran->jumlah_harga}}">
+        <input type="text" id="jumlah_harga" name="jumlah_harga" class="form-control" placeholder="Jumlah Harga" value="{{$pengeluaran->jumlah_harga}}" readonly>
     </div>
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Untuk</label>
       <select class="form-control select2 input-lg" name="untuk" id="untuk" >
-        <option>Silahkan Pilih</option>
-        <option value="TU / Bidang" >TU / Bidang</option>
+        <option disabled>Silahkan Pilih</option>
+        <option {{($pengeluaran->untuk == "TU / Bidang" ? 'selected' : '')}} value="TU / Bidang" >TU / Bidang</option>
       </select>
     </div>
     <div class="form-group mb-2">
@@ -45,17 +45,39 @@
     <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
       <select class="form-control select2 input-lg" name="keterangan" id="keterangan" >
-        <option>Silahkan Pilih</option>
-        <option value="Alat Tulis Kantor" >Alat Tulis Kantor</option>
-        <option value="Belanja Alat Cetak Kantor" >Belanja Alat Cetak Kantor</option>
-        <option value="Belanja Alat Listrik Kantor" >Belanja Alat Listrik Kantor</option>
-        <option value="Belanja Kegiatan Kantor Lainnya" >Belanja Kegiatan Kantor Lainnya</option>
-        <option value="Belanja Materai dan Benda Pos Lainnya" >Belanja Materai dan Benda Pos Lainnya</option>
+        <option disabled>Silahkan Pilih</option>
+        <option {{($pengeluaran->keterangan == "Alat Tulis Kantor" ? 'selected' : '')}} value="Alat Tulis Kantor" >Alat Tulis Kantor</option>
+        <option {{($pengeluaran->keterangan == "Belanja Alat Cetak Kantor" ? 'selected' : '')}} value="Belanja Alat Cetak Kantor" >Belanja Alat Cetak Kantor</option>
+        <option {{($pengeluaran->keterangan == "Belanja Alat Listrik Kantor" ? 'selected' : '')}} value="Belanja Alat Listrik Kantor" >Belanja Alat Listrik Kantor</option>
+        <option {{($pengeluaran->keterangan == "Belanja Kegiatan Kantor Lainnya" ? 'selected' : '')}} value="Belanja Kegiatan Kantor Lainnya" >Belanja Kegiatan Kantor Lainnya</option>
+        <option {{($pengeluaran->keterangan == "Belanja Materai dan Benda Pos Lainnya" ? 'selected' : '')}} value="Belanja Materai dan Benda Pos Lainnya" >Belanja Materai dan Benda Pos Lainnya</option>
       </select>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
+
+    <script>
+      var inputBanyak = document.getElementById("banyaknya");
+      var inputHarga = document.getElementById("harga_satuan");
+      var inputJumlah = document.getElementById("jumlah_harga");
+
+      function totalBiaya() {
+          if (inputBanyak.value && inputHarga.value) {
+            inputJumlah.value = inputBanyak.value * inputHarga.value;
+          } else {
+            inputJumlah.value = null;
+          }
+      }
+
+      inputBanyak.addEventListener("keyup", function() {
+          totalBiaya()
+      });
+
+      inputHarga.addEventListener("keyup", function() {
+          totalBiaya()
+      });
+    </script>
   </form>
 
 @endsection
