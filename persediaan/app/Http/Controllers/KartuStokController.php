@@ -95,9 +95,9 @@ class KartuStokController extends Controller
      */
     public function edit($id)
     {
-        $kartuStok = KartuStok::find($id);
+        $kartustok = KartuStok::find($id);
 
-        return view('kartuStok.Edit-KartuStok',compact('kartuStock'));
+        return view('kartuStok.Edit-KartuStok',compact('kartustok'));
     }
 
     /**
@@ -109,7 +109,10 @@ class KartuStokController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kartustok = KartuStok::find($id);
+        $kartustok->update($request->all());
+        return redirect('/KartuStok/index')->with('toast_success', 'Kartu Stok Tersimpan!');
+
     }
 
     /**

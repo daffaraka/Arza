@@ -5,7 +5,8 @@
   <h1 class="h2">Daftar Barang</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <a href="/DaftarBarang/Cetak-Barang" target="_blank" class="btn btn-sm btn-outline-secondary">PDF<span data-feather="printer"></span></a>
+      <a href="/DaftarBarang/Cetak-Barang" target="_blank" class="btn btn-sm btn-outline-secondary">PDF <span data-feather="printer"></span></a>
+      <a href="/DaftarBarang/Export-Barang" target="_blank" class="btn btn-sm btn-outline-secondary">Excel <span data-feather="printer"></span></a>
     </div>
   </div>
 </div>
