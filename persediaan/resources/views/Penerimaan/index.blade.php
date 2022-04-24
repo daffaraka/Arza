@@ -48,8 +48,8 @@
           <td>{{ $item->nama_barang }}</td>
           <td>{{ $item->sumber_dana }}</td>
           <td>{{ $item->banyaknya }}</td>
-          <td>{{ $item->harga_satuan }}</td>
-          <td>{{ $item->jumlah_harga }}</td>
+          <td>Rp {{ $item->harga_satuan }}</td>
+          <td>Rp {{ $item->jumlah_harga }}</td>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $item->tanggal_penerimaan }}</td>
           <td>{{ $item->keterangan }}</td>

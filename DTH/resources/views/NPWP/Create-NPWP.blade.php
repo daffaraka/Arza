@@ -2,10 +2,10 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">DTH</h1>
+  <h1 class="h2">NPWP</h1>
 </div>
 
-<h5 class="mt-3 mb-3">Input DTH</h5>
+<h5 class="mt-3 mb-3">Input NPWP</h5>
   <form action="{{ url('DTH/simpan_dth')}}" method="post">
     {{ csrf_field() }}
     <div class="form-group mb-2">

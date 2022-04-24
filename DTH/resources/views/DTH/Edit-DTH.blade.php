@@ -12,23 +12,36 @@
     {{ csrf_field() }}
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Kode Akun</label>
-        <input type="number" id="kode_akun" name="kode_akun" class="form-control" placeholder="Kode Akun">
-    </div>
-    <div class="form-group mb-2">
+        <select class="form-select" aria-label="Default select example"  id="kode_akun" name="kode_akun">
+            <option selected disabled>- Pilih Kode Akun -</option>
+            <option value="bagus">Code</option>
+        </select>
+      </div>
+      <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Jenis Pajak</label>
-        <input type="text" id="jenis_pajak" name="jenis_pajak" class="form-control" placeholder="Jenis Pajak">
-    </div>
+        <select class="form-select" aria-label="Default select example" id="jenis_pajak" name="jenis_pajak">
+            <option selected disabled>- Pilih Jenis Pajak -</option>
+            <option value="bagus">Code</option>
+        </select>
+      </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Nominal Pajak</label>
         <input type="number" id="nominal_pajak" name="nominal_pajak" class="form-control" placeholder="Nominal Pajak">
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NPWP</label>
-        <input type="number" id="npwp" name="npwp" class="form-control" placeholder="NPWP">
+        <select class="form-select" aria-label="Default select example" id="npwp" name="npwp">
+            <option selected disabled>- Pilih NPWP -</option>
+            <option value="bagus">Code</option>
+        </select>
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Nama WP</label>
-        <input type="text" id="nama_wp" name="nama_wp" class="form-control" placeholder="Nama WP">
+        <select class="form-select" aria-label="Default select example" id="nama_wp" name="nama_wp">
+            <option selected disabled>- Pilih Nama NPWP -</option>
+            <option value="bagus">Code</option>
+        </select>
+        <input type="text" id="nama_wp" name="nama_wp" class="d-none" placeholder="Nama WP" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NTPN</label>
