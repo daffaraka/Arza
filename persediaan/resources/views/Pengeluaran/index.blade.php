@@ -5,7 +5,9 @@
   <h1 class="h2">Pengeluaran</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <a href="/Pengeluaran/Cetak-Pengeluaran" target="_blank" class="btn btn-sm btn-outline-secondary">PDF<span data-feather="printer"></span></a>
+      <a href="/Pengeluaran/Cetak-Pengeluaran" target="_blank" class="btn btn-sm btn-outline-secondary">PDF <span data-feather="printer"></span></a>
+      <a href="/Pengeluaran/Export-Pengeluaran" target="_blank" class="btn btn-sm btn-outline-secondary">Export <span data-feather="printer"></span></a>
+
     </div>
   </div>
 </div>

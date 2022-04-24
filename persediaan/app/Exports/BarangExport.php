@@ -21,6 +21,7 @@ class BarangExport implements FromCollection,WithHeadings
         return [
             "ID", 
             "Nama Barang", 
-            "Jenis Barang"];
+            "Jenis Barang"
+        ];
     }
 }

@@ -18,6 +18,18 @@ class PenerimaanExport implements FromCollection,WithHeadings
 
     public function headings(): array
     {
-        return ["your", "headings", "here"];
+        return [
+            "No",
+            "Tanggal", 
+            "Dari", 
+            "Tanggal Faktur",
+            "Nama Barang",
+            "Sumber Dana",
+            "Banyaknya",
+            "Harga Satuan",
+            "Jumlah Harga",
+            "Tanggal Penerimaan",
+            "Keterangan",
+        ];
     }
 }
