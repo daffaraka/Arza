@@ -107,7 +107,7 @@ class PengeluaranController extends Controller
         $pengeluaran = Pengeluaran::findOrFail($id);
         $pengeluaran->update($request->all());
 
-        return redirect('/Pengeluaran/index')->with('toast_success', 'Pengeluaran Tersimpan!');
+        return redirect('/Pengeluaran/index')->with('toast_success', 'Pengeluaran telah diperbarui!');
     }
 
     /**

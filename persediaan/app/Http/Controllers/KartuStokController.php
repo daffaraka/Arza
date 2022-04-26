@@ -110,7 +110,7 @@ class KartuStokController extends Controller
     {
         $kartustok = KartuStok::find($id);
         $kartustok->update($request->all());
-        return redirect('/KartuStok/index')->with('toast_success', 'Kartu Stok Tersimpan!');
+        return redirect('/KartuStok/index')->with('toast_success', 'Kartu Stok Telah Diperbarui!');
 
     }
 

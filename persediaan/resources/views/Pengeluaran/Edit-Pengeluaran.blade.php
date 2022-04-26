@@ -6,7 +6,7 @@
 </div>
 
 <h5 class="mt-3 mb-3"> Edit Pengeluaran Hari Ini</h5>
-  <form action="{{ url('Pengeluaran/simpan_pengeluaran')}}" method="post">
+  <form action="{{ url('Pengeluaran/update_pengeluaran',$pengeluaran->id)}}" method="post">
     {{ csrf_field() }}
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
