@@ -104,7 +104,7 @@ class PenerimaanController extends Controller
         $penerimaan = Penerimaan::findOrFail($id);
         $penerimaan->update($request->all());
 
-        return redirect('/Penerimaan/index')->with('toast_success', 'Penerimaan Tersimpan!');
+        return redirect('/Penerimaan/index')->with('toast_success', 'Penerimaan telah diperbarui!');
     }
 
    

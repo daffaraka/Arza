@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Daftar Barang</h1>
+  <h1 class="h2">Penerimaan</h1>
 </div>
 
 <h5 class="mt-3 mb-3"> Edit Persediaan Barang Habis Pakai</h5>

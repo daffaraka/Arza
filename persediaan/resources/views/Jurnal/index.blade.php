@@ -45,6 +45,7 @@
   <div class="card-body text-center">
     <table class="table table-bordered">
       <tr>
+        {{-- <th>#</th> --}}
         <th>Tanggal</th>
         <th>Keterangan</th>
         <th>Debit</th>
@@ -53,6 +54,7 @@
       </tr>
       @foreach ($jurnal as $item)
       <tr>
+        
         <td rowspan="2">{{ $item->tanggal }}</td>
         <td>{{ $item->uraian_debit }}</td>
         <td>Rp {{ $item->debit }}</td>
