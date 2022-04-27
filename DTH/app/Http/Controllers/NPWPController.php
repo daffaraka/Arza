@@ -21,16 +21,16 @@ class NPWPController extends Controller
         return view('NPWP.index');
     }
 
-    public function dthexport(){
-        return Excel::download(new DTHExport, ('dth.xlsx'));
+    public function npwpExport(){
+        return Excel::download(new DTHExport, ('npwp.xlsx'));
     }
 
-    public function dthimport(Request $request){
+    public function npwpImport(Request $request){
         $file = $request->file('file');
         $namafile = $file->getClientOriginalName();
         $file->move('DTH', $namafile);
 
-        Excel::import(new DTHImport, public_path('/DTH/'.$namafile));
+        Excel::import(new DTHImport, public_path('/NPWP/'.$namafile));
         return redirect('/DTH/index');
     }    
 
@@ -47,7 +47,7 @@ class NPWPController extends Controller
      */
     public function create()
     {
-        return view('DTH.Create-DTH');
+
         return view('NPWP.Create-NPWP');
     }
 

@@ -26,7 +26,7 @@
       </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Nominal Pajak</label>
-        <input type="number" id="nominal_pajak" name="nominal_pajak" class="form-control" placeholder="Nominal Pajak">
+        <input type="number" id="nominal_pajak" name="nominal_pajak" class="form-control" placeholder="Nominal Pajak" value="{{$dth->nominal_pajak}}">
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NPWP</label>
@@ -45,19 +45,19 @@
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NTPN</label>
-        <input type="number" id="ntpn" name="ntpn" class="form-control" placeholder="NTPN">
+        <input type="number" id="ntpn" name="ntpn" class="form-control" placeholder="NTPN" value="{{$dth->ntpn}}">
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Id Billing</label>
-        <input type="number" id="id_billing" name="id_billing" class="form-control" placeholder="Id Billing">
+        <input type="number" id="id_billing" name="id_billing" class="form-control" placeholder="Id Billing" value="{{$dth->id_billing}}">
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Keperluan</label>
-        <input type="text" id="keperluan" name="keperluan" class="form-control" placeholder="Keperluan">
+        <input type="text" id="keperluan" name="keperluan" class="form-control" placeholder="Keperluan" value="{{$dth->keperluan}}">
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Jumlah</label>
-        <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah">
+        <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah" value="{{$dth->jumlah}}">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Ubah</button>

@@ -20,7 +20,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('NPWP/index') ? 'active' : '' }}" href="/NPWP/index">
+          <a class="nav-link {{ Request::is('NPWP/index') ? 'active' : '' }}" href="{{route('NPWP.index')}}">
             <span data-feather="file-text"></span>
             NPWP
           </a>

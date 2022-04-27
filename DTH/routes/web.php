@@ -3,6 +3,7 @@
 use App\Http\Controllers\DTHController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NPWPController;
 use App\Http\Controllers\RegisController;
 
 /*
@@ -43,4 +44,7 @@ Route::get('/DTH/Export-DTH', [DTHController::class, 'dthexport' ]);
 Route::post('/DTH/Import-DTH', [DTHController::class, 'dthimport' ]);
 
 Route::get('/DTH/Cetak-DTH', [DTHController::class, 'cetakdth' ]);
+
+Route::resource('NPWP',NPWPController::class);
+Route::post('/NPWP/Import-NPWP', [NPWP::class, 'npwpimport' ])->name('NPWP.import');
 

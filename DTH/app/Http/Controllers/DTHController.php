@@ -58,6 +58,7 @@ class DTHController extends Controller
      */
     public function store(Request $request)
     {
+       
         DTH::create([
             'kode_akun' => $request->kode_akun,
             'jenis_pajak' => $request->jenis_pajak,
@@ -67,6 +68,8 @@ class DTHController extends Controller
             'ntpn' => $request->ntpn,
             'id_billing' => $request->id_billing,
             'keperluan' => $request->keperluan,
+            'bulan' => $request->bulan,
+            'triwulan' => $request->triwulan,
         ]);
 
         return redirect('/DTH/index')->with('toast_success', 'DTH Tersimpan!');

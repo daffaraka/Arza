@@ -23,6 +23,8 @@ class CreateDTHSTable extends Migration
             $table->string('ntpn', 100);
             $table->string('id_billing', 100);
             $table->string('keperluan', 100);
+            $table->string('bulan',100);
+            $table->string('triwulan',100);
             $table->timestamps();
         });
     }
