@@ -52,6 +52,8 @@
           <th>NPWP</th>
           <th>Nama WP</th>
           <th>NTPN</th>
+          <th>Bulan</th>
+          <th>Triwulan</th>
           <th>ID Billing</th>
           <th>Keperluan</th>
           <th>Action</th>
@@ -64,6 +66,8 @@
           <td>{{ $item->npwp }}</td>
           <td>{{ $item->nama_wp }}</td>
           <td>{{ $item->ntpn }}</td>
+          <td>{{ $item->bulan}}</td>
+          <td>{{ $item->triwulan}}</td>
           <td>{{ $item->id_billing }}</td>
           <td>{{ $item->keperluan }}</td>
           <td>
