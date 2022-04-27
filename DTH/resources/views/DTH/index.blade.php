@@ -62,7 +62,7 @@
         <tr>
           <td>{{ $item->kode_akun }}</td>
           <td>{{ $item->jenis_pajak }}</td>
-          <td>{{ $item->nominal_pajak }}</td>
+          <td>Rp {{ $item->nominal_pajak }}</td>
           <td>{{ $item->npwp }}</td>
           <td>{{ $item->nama_wp }}</td>
           <td>{{ $item->ntpn }}</td>
@@ -77,9 +77,36 @@
           </td>
         </tr>
         @endforeach
+        <tr>
+          <td class="bg-light fw-bold" colspan="2">Total</td>
+          <td class="bg-light fw-bold" id="total_nominal">0</td>
+          <td colspan="8"></td>
+        </tr>
       </table>
     </div>
   </div>
+
+  <script>
+    var dth = {!! json_encode($dth) !!};
+    var total = document.getElementById("total_nominal");
+    var dataNominal = [];
+
+    if (dth.length > 0) {
+        for (let i = 0; i < dth.length; i++) {
+            dataNominal.push(parseInt(dth[i].nominal_pajak))
+        }
+    } else {
+        dataNominal.push(0)
+    }
+
+    const sumNominal = dataNominal.reduce(add, 0);
+
+    function add(val, a) {
+        return val + a;
+    }
+
+    total.innerHTML = `Rp ${sumNominal}`
+</script>
 
   @include('sweetalert::alert')
 </div>
