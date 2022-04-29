@@ -15,6 +15,8 @@ class CreateNPWPSTable extends Migration
     {
         Schema::create('n_p_w_p_s', function (Blueprint $table) {
             $table->id();
+            $table->string('npwp', 100);
+            $table->string('nama_wp', 100);
             $table->timestamps();
         });
     }

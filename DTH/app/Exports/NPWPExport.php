@@ -2,25 +2,24 @@
 
 namespace App\Exports;
 
-use App\Models\DTH;
+use App\Models\NPWP;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class DTHExport implements FromCollection,WithHeadings
+class NPWPExport implements FromCollection,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return DTH::all();
+        return NPWP::all();
     }
-
+    
     public function headings(): array
     {
         return  [
-            '#','kode_akun', 'jenis_pajak','nominal_pajak','npwp','nama_wp',
-            'ntpn','id_billing','keperluan','jumlah','bulan','triwulan'
+            '#','NPWP','Nama Wp',
         ];
     }
 }

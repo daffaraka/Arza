@@ -5,7 +5,10 @@
   <h1 class="h2">DTH</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <a href="/DTH/Cetak-DTH" target="_blank" class="btn btn-sm btn-outline-secondary">PDF<span data-feather="printer"></span></a>
+      <a href="/DTH/Cetak-DTH" target="_blank" class="btn btn-sm btn-outline-secondary">PDF <span data-feather="printer"></span></a>
+    </div>
+    <div class="btn-group me-2">
+      <a href="/DTH/Export-DTH" target="_blank" class="btn btn-sm btn-outline-secondary">Excel <span data-feather="printer"></span></a>
     </div>
   </div>
 </div>
