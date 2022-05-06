@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\DTHController;
+use App\Http\Controllers\TriwulanController;
+use App\Http\Controllers\NPWPController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\NPWPController;
 use App\Http\Controllers\RegisController;
 
 /*
@@ -45,6 +46,8 @@ Route::post('/DTH/Import-DTH', [DTHController::class, 'dthimport' ]);
 
 Route::get('/DTH/Cetak-DTH', [DTHController::class, 'cetakdth' ]);
 
-Route::resource('NPWP',NPWPController::class);
-Route::post('/NPWP/Import-NPWP', [NPWP::class, 'npwpimport' ])->name('NPWP.import');
+Route::get('/Triwulan/index', [TriwulanController::class, 'index' ]);
+Route::get('/Triwulan/Cetak-Triwulan', [TriwulanController::class, 'create' ]);
 
+Route::get('/NPWP/index', [NPWPController::class, 'index' ]);
+Route::get('/NPWP/Create-NPWP', [NPWPController::class, 'create' ]);

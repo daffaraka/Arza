@@ -43,7 +43,7 @@
     </div>
     <div class="form-group mb-2">
       <label for="number" class="col-sm-2 col-form-label">Total SPD</label>
-      <input type="number" id="total_spd" name="total_spd" class="form-control" placeholder="Total SPD">
+      <input type="number" id="total_spd" name="total_spd" class="form-control" placeholder="Total SPD" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Nominal SPJ Berlalu</label>
@@ -55,15 +55,74 @@
       </div>
       <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Total SPJ</label>
-        <input type="number" id="total_spj" name="total_spj" class="form-control" placeholder="Total SPJ">
+        <input type="number" id="total_spj" name="total_spj" class="form-control" placeholder="Total SPJ" readonly>
       </div>
       <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Nominal Belum SPJ</label>
-        <input type="number" id="nominal_belum_spj" name="nominal_belum_spj" class="form-control" placeholder="Nominal Belum SPJ">
+        <input type="number" id="nominal_belum_spj" name="nominal_belum_spj" class="form-control" placeholder="Nominal Belum SPJ" readonly>
       </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </form>
+
+  <script>
+      var inputSPDBerlalu = document.getElementById("nominal_spd_berlalu");
+      var inputSPDBerjalan = document.getElementById("nominal_spd_berjalan");
+      var totalSPD = document.getElementById("total_spd");
+      var inputSPJBerlalu = document.getElementById("nominal_spj_berlalu");
+      var inputSPJBerjalan = document.getElementById("nominal_spj_berjalan");
+      var totalSPJ = document.getElementById("total_spj");
+      var totalNominal = document.getElementById("nominal_belum_spj");
+
+      function add(val, a) {
+          return val + a;
+      }
+
+      function countTotalSPD() {
+          if (inputSPDBerlalu.value && inputSPDBerjalan.value) {
+            totalSPD.value = parseInt(inputSPDBerlalu.value) + parseInt(inputSPDBerjalan.value);
+          } else {
+            totalSPD.value = null;
+          }
+      }
+
+      function countTotalSPJ() {
+          if (inputSPJBerlalu.value && inputSPJBerjalan.value) {
+            totalSPJ.value = parseInt(inputSPJBerlalu.value) + parseInt(inputSPJBerjalan.value);
+          } else {
+            totalSPJ.value = null;
+          }
+      }
+
+      function countTotalNominal() {
+        console.log('hit');
+          if (totalSPD.value && totalSPJ.value) {
+            totalNominal.value = parseInt(totalSPD.value) - parseInt(totalSPJ.value);
+          } else {
+            totalNominal.value = null;
+          }
+      }
+
+      inputSPDBerlalu.addEventListener("keyup", function() {
+        countTotalSPD()
+        countTotalNominal()
+      });
+
+      inputSPDBerjalan.addEventListener("keyup", function() {
+        countTotalSPD()
+        countTotalNominal()
+      });
+
+      inputSPJBerlalu.addEventListener("keyup", function() {
+        countTotalSPJ()
+        countTotalNominal()
+      });
+
+      inputSPJBerjalan.addEventListener("keyup", function() {
+        countTotalSPJ()
+        countTotalNominal()
+      });
+  </script>
 
 @endsection

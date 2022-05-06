@@ -66,8 +66,8 @@
           <td>{{ $item->kode }}</td>
           <td>{{ $item->nama_kegiatan }}</td>
           <td>{{ $item->spj_gu_ke }}</td>
-          <td>{{ $item->nominal }}</td>
-          <td>{{ $item->total }}</td>
+          <td id="nominal{{ $loop->iteration }}">{{ $item->nominal }}</td>
+          <td id="total{{ $loop->iteration }}">{{ $item->total }}</td>
           <td>
             <a href="{{ url('/SPJ/Edit-SPJ', $item->id) }}"><span data-feather="edit"></span></a>
             | 
@@ -75,8 +75,58 @@
           </td>
         </tr>
         @endforeach
+        <tr class="fw-bold" style="background-color: #f7f7f7;">
+            <td colspan="8">Total</td>
+            <td id='total'></td>
+            <td>-</td>
+        </tr>
       </table>
     </div>
+
+    <script>
+      function thousandSeparator(amount) {
+        if (amount) {
+          var result = amount
+              .toString()
+              .replace(/,/g, '')
+              .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        } else {
+          var result = 0;
+        }
+    
+        return result;
+      }
+    </script>
+
+    <script>
+      var guspj = {!! json_encode($guspj) !!};
+      var total = document.getElementById("total");
+      var dataAllTotal = [];
+
+      if (guspj.length > 0) {
+          for (let i = 0; i < guspj.length; i++) {
+              var dataNominal = document.getElementById("nominal" + (i + 1));
+              var dataTotal = document.getElementById("total" + (i + 1));
+              var valueNominal = parseInt(dataNominal.innerText);
+              var valueTotal = parseInt(dataTotal.innerText);
+              dataNominal.innerHTML = `Rp ${thousandSeparator(valueNominal)}`;
+              dataTotal.innerHTML = `Rp ${thousandSeparator(valueTotal)}`;
+
+              dataAllTotal.push(parseInt(guspj[i].total))
+          }
+      } else {
+          dataAllTotal.push(0)
+      }
+
+      console.log(dataAllTotal);
+      const sumTotal = dataAllTotal.reduce(add, 0);
+
+      function add(val, a) {
+          return val + a;
+      }
+
+      total.innerHTML = `Rp ${thousandSeparator(sumTotal)}`
+  </script>
 
     @include('sweetalert::alert')
 </div>

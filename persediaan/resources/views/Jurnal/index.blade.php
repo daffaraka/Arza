@@ -56,9 +56,9 @@
       <tr>
         
         <td rowspan="2">{{ $item->tanggal }}</td>
-        <td>{{ $item->uraian_debit }}</td>
-        <td>Rp {{ $item->debit }}</td>
-        <td></td>
+        <td class="text-start">{{ $item->uraian_debit }}</td>
+        <td class="text-start">Rp {{ $item->debit }}</td>
+        <td style="background-color: #f7f7f7;"></td>
         <td rowspan="2">
           <a href="{{ url('/Jurnal/Edit-Jurnal', $item->id) }}"><span data-feather="edit"></span></a>
           | 
@@ -66,9 +66,9 @@
         </td>
       </tr>
       <tr>
-        <td>{{ $item->uraian_debit }}</td>
-        <td></td>
-        <td>Rp {{ $item->kredit }}</td>
+        <td class="text-end">{{ $item->uraian_kredit }}</td>
+        <td style="background-color: #f7f7f7;"></td>
+        <td class="text-end">Rp {{ $item->kredit }}</td>
       </tr>
       @endforeach
       <tr class="fw-bold" style="background-color: #f7f7f7;">

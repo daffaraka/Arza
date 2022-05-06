@@ -99,7 +99,7 @@
       <label for="number" class="col-sm-2 col-form-label">Nominal 3</label>
       <input type="number" id="nominal_bulan3" name="nominal_bulan3" class="form-control" placeholder="Nominal 3">
     </div>
-    <div class="form-group mb-3">
+    {{-- <div class="form-group mb-3">
       <label for="text" class="col-sm-2 col-form-label">Bulan 4</label>
       <select class="form-control select2 input-lg" name="bulan4" id="bulan4" >
         <option selected disabled>Pilih Salah Satu</option>
@@ -120,14 +120,50 @@
     <div class="form-group mb-2">
       <label for="number" class="col-sm-2 col-form-label">Nominal 4</label>
       <input type="number" id="nominal_bulan4" name="nominal_bulan4" class="form-control" placeholder="Nominal 4">
-    </div>
+    </div> --}}
     <div class="form-group mb-2">
       <label for="number" class="col-sm-2 col-form-label">Jumlah SPD</label>
-      <input type="number" id="jumlah_spd" name="jumlah_spd" class="form-control" placeholder="Jumlah SPD">
+      <input type="number" id="jumlah_spd" name="jumlah_spd" class="form-control" placeholder="Jumlah SPD (Nominal 1 + Nominal 2 + Nominal 3)" readonly>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </form>
+
+  <script>
+    var inputNominal1 = document.getElementById("nominal_bulan1");
+    var inputNominal2 = document.getElementById("nominal_bulan2");
+    var inputNominal3 = document.getElementById("nominal_bulan3");
+    var total = document.getElementById("jumlah_spd");
+
+    function add(val, a) {
+          return val + a;
+      }
+
+    function totalNominal() {
+        if (inputNominal1.value || inputNominal2.value || inputNominal3.value) {
+          var data = [ 
+            inputNominal1.value ? parseInt(inputNominal1.value) : 0, 
+            inputNominal2.value ? parseInt(inputNominal2.value) : 0, 
+            inputNominal3.value ? parseInt(inputNominal3.value) : 0
+          ]
+          total.value = data.reduce(add, 0);
+        } else {
+          total.value = null;
+        }
+    }
+
+    inputNominal1.addEventListener("keyup", function() {
+        totalNominal()
+    });
+
+    inputNominal2.addEventListener("keyup", function() {
+        totalNominal()
+    });
+
+    inputNominal3.addEventListener("keyup", function() {
+        totalNominal()
+    });
+</script>
 
 @endsection
