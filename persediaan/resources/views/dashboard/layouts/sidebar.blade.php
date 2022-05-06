@@ -32,6 +32,18 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('Pemasukkan-KartuStok/index', 'Pemasukkan-KartuStok/KartuStok/Tambah-Pemasukkan/{id}') ? 'active' : '' }}" href="/Pemasukkan-KartuStok/index">
+            <span data-feather="folder"></span>
+            Pemasukkan Kartu Stok
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('Pengeluaran-KartuStok/index', 'Pengeluaran-KartuStok/Tambah-Pengeluaran/{id}') ? 'active' : '' }}" href="/Pengeluaran-KartuStok/index">
+            <span data-feather="folder"></span>
+            Pengeluaran Kartu Stok
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('Jurnal/index', 'Jurnal/Create-Jurnal') ? 'active' : '' }}" href="/Jurnal/index">
             <span data-feather="file-text"></span>
             Jurnal

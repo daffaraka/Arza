@@ -96,6 +96,16 @@ Route::post('/KartuStok/Import-KartuStok', [KartuStokController::class, 'kartust
 
 Route::get('/KartuStok/Cetak-KartuStok', [KartuStokController::class, 'cetakkartustok' ]);
 
+Route::get('/Pemasukkan-KartuStok/index', [KartuStokController::class,'indexPemasukkanKartuStok']);
+Route::get('/Pemasukkan-KartuStok/KartuStok/Tambah-Pemasukkan/{id}', [KartuStokController::class,'createPemasukkan']);
+Route::post('/Pemasukkan-KartuStok/KartuStok/Store-Pemasukkan/{id}', [KartuStokController::class,'storePemasukkan']);
+
+Route::get('/Pengeluaran-KartuStok/index', [KartuStokController::class,'indexPengeluaranKartuStok']);
+Route::get('/Pengeluaran-KartuStok/Tambah-Pengeluaran/{id}', [KartuStokController::class,'createPengeluaran']);
+Route::post('/Pengeluaran-KartuStok/Store-Pengeluaran/{id}', [KartuStokController::class,'storePengeluaran']);
+
+
+
 Route::get('/Jurnal/index', [JurnalController::class, 'index' ]);
 Route::get('/Jurnal/Create-Jurnal', [JurnalController::class, 'create' ]);
 Route::post('/Jurnal/simpan_jurnal', [JurnalController::class, 'store' ]);
