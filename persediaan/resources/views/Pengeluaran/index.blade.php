@@ -39,8 +39,8 @@
           <td>{{ $item->nama_barang }}</td>
           <td>{{ $item->sumber_dana }}</td>
           <td>{{ $item->banyaknya }}</td>
-          <td>Rp {{ $item->harga_satuan }}</td>
-          <td>Rp {{ $item->jumlah_harga }}</td>
+          <td>Rp {{ number_format($item->harga_satuan) }}</td>
+          <td>Rp {{ number_format($item->jumlah_harga) }}</td>
           <td>{{ $item->untuk }}</td>
           <td>{{ $item->tanggal_penyerahan }}</td>
           <td>{{ $item->keterangan }}</td>
@@ -51,9 +51,53 @@
           </td>
         </tr>
         @endforeach
+        <tr class="fw-bold" style="background-color: #f7f7f7;">
+          <td colspan="5">Total</td>
+          <td id="total"></td>
+          <td colspan="4">
+            -
+          </td>
+        </tr>
       </table>
     </div>
   </div>
+
+  <script>
+    function thousandSeparator(amount) {
+      if (amount) {
+        var result = amount
+            .toString()
+            .replace(/,/g, '')
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      } else {
+        var result = 0;
+      }
+  
+      return result;
+    }
+  </script>
+  
+  <script>
+    var penerimaan = {!! json_encode($pengeluaran) !!};
+    var total = document.getElementById("total");
+    var dataTotal = [];
+  
+    if (penerimaan.length > 0) {
+        for (let i = 0; i < penerimaan.length; i++) {
+          dataTotal.push(parseInt(penerimaan[i].jumlah_harga))
+        }
+    } else {
+      dataTotal.push(0)
+    }
+  
+    const sumTotal = dataTotal.reduce(add, 0);
+  
+    function add(val, a) {
+        return val + a;
+    }
+  
+    total.innerHTML = `Rp ${thousandSeparator(sumTotal)}`
+  </script>
 
   @include('sweetalert::alert')
 </div>

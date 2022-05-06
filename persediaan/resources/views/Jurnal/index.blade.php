@@ -57,7 +57,7 @@
         
         <td rowspan="2">{{ $item->tanggal }}</td>
         <td class="text-start">{{ $item->uraian_debit }}</td>
-        <td class="text-start">Rp {{ $item->debit }}</td>
+        <td class="text-start">Rp {{ number_format($item->debit) }}</td>
         <td style="background-color: #f7f7f7;"></td>
         <td rowspan="2">
           <a href="{{ url('/Jurnal/Edit-Jurnal', $item->id) }}"><span data-feather="edit"></span></a>
@@ -68,7 +68,7 @@
       <tr>
         <td class="text-end">{{ $item->uraian_kredit }}</td>
         <td style="background-color: #f7f7f7;"></td>
-        <td class="text-end">Rp {{ $item->kredit }}</td>
+        <td class="text-end">Rp {{ number_format($item->kredit) }}</td>
       </tr>
       @endforeach
       <tr class="fw-bold" style="background-color: #f7f7f7;">
@@ -82,6 +82,21 @@
     </table>
   </div>
 </div>
+
+<script>
+  function thousandSeparator(amount) {
+    if (amount) {
+      var result = amount
+          .toString()
+          .replace(/,/g, '')
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    } else {
+      var result = 0;
+    }
+
+    return result;
+  }
+</script>
 
 <script>
   var jurnal = {!! json_encode($jurnal) !!};
@@ -107,8 +122,8 @@
       return val + a;
   }
 
-  debit.innerHTML = `Rp ${sumDebit}`
-  kredit.innerHTML = `Rp ${sumKredit}`
+  debit.innerHTML = `Rp ${thousandSeparator(sumDebit)}`
+  kredit.innerHTML = `Rp ${thousandSeparator(sumKredit)}`
 </script>
 
 @include('sweetalert::alert')
