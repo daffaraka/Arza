@@ -19,7 +19,7 @@ class KartuStokExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return [
-            "NO",
+            "No",
             "Tanggal", 
             "Nama Barang", 
             "Unit Pemasukan",

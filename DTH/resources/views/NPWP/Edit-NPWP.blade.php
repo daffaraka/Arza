@@ -6,15 +6,15 @@
 </div>
 
 <h5 class="mt-3 mb-3">Input NPWP</h5>
-  <form action="{{route('NPWP.store')}}" method="post">
+  <form action="{{route('NPWP.update',$npwp->id)}}" method="post">
     {{ csrf_field() }}
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NPWP</label>
-        <input type="text" name="npwp" id="npwp" class="form-control">
+        <input type="text" name="npwp" id="npwp" class="form-control" value="{{$npwp->npwp}}">
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Nama WP</label>
-        <input type="text" name="nama_wp" id="nama_wp" class="form-control">
+        <input type="text" name="nama_wp" id="nama_wp" class="form-control" value="{{$npwp->nama_wp}}">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Simpan</button>

@@ -15,7 +15,8 @@ class NPWPImport implements ToModel
     public function model(array $row)
     {
         return new NPWP([
-            //
+            'npwp' => $row[3],
+            'nama_wp' => $row[4],
         ]);
     }
 }
