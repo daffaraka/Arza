@@ -34,14 +34,14 @@
           <th>Unit</th>
           <th>Harga/Unit</th>
           <th>Total Harga</th>
+          <th>Action </th>
         </tr>
         @foreach ($kartustok as $item)
         <tr>
           <td>{{ $item->tanggal }}</td>
           <td>{{ $item->nama_barang }}</td>
           @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
-            <td colspan="3"> Tidak ada data <br>
-            <a href="{{url('Pemasukkan-KartuStok/KartuStok/Tambah-Pemasukkan',$item->id)}}"><span data-feather="edit"></span> </a> 
+            <td colspan="3"> - 
             </td>
           @else
             <td>{{ $item->unit_pemasukan }}</td>
@@ -53,6 +53,11 @@
           <td>Rp {{ $item->harga_per_unit_persediaan }}</td>
           <td>Rp {{ $item->total_harga_persediaan }}</td>
           <td>{{ $item->keterangan }}</td>
+          <td> 
+           <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
+            | 
+            <a href="{{ url('/KartuStok/delete-kartustok', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
+          </td>
         </tr>
         @endforeach
       </table>

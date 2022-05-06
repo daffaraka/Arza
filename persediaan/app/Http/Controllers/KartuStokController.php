@@ -48,9 +48,9 @@ class KartuStokController extends Controller
             'unit_pemasukan'=>$request->unit_pemasukan,
             'harga_per_unit_pemasukan'=>$request->harga_per_unit_pemasukan,
             'total_harga_pemasukan'=>$request->total_harga_pemasukan,
-            'unit_persediaan'=>$request->unit_persediaan,
-            'harga_per_unit_persediaan'=>$request->harga_per_unit_persediaan,
-            'total_harga_persediaan'=>$request->total_harga_persediaan,
+            'unit_persediaan'=>$request->unit_pemasukan,
+            'harga_per_unit_persediaan'=>$request->harga_per_unit_pemasukan,
+            'total_harga_persediaan'=>$request->total_harga_pemasukan,
             'keterangan'=>$request->keterangan,
         ]);
 
@@ -119,8 +119,16 @@ class KartuStokController extends Controller
 
     public function storePengeluaran($id,Request $request)
     {
-        
+
+
         $kartustok = KartuStok::findOrFail($id);
+        $kartustok->decrement('unit_persediaan',$request->unit_pengeluaran);
+        $kartustok->decrement('total_harga_persediaan',$request->total_harga_pengeluaran);
+
+        dd($request->all());
+        // $kartustok->update([
+        //     'unit_persediaan' = 
+        // ]);
         $kartustok->update($request->all());
         return redirect('/KartuStok/index')->with('toast_success', 'Pengeluaran Kartu Stok Telah Ditambahkan!');
     }

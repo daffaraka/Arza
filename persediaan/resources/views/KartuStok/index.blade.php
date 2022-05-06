@@ -13,11 +13,7 @@
 </div>
 
 <div class="content">
-    <div class="card-header">
-      <div class="card-tools">
-        <a href="/KartuStok/Create-KartuStok" class="btn btn-success">Tambah Data<i class="fas fa-plus-square"></i></a>
-      </div>
-    </div>
+  
     <div class="card-body text-center">
       <table class="table table-bordered">
         <tr>
@@ -51,7 +47,7 @@
 
           @else
             <td>{{ $item->unit_pemasukan }}</td>
-            <td>Rp {{ $item->harga_per_unit_pemasukan }}</td>
+            <td>Rp {{number_format($item->harga_per_unit_pemasukan) }}</td>
             <td>Rp {{ $item->total_harga_pemasukan }}</td>
           @endif
         

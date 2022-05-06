@@ -30,17 +30,17 @@
         <label for="text" class="col-sm-2 col-form-label">Total Harga</label>
         <input type="text" id="total_harga_pengeluaran" name="total_harga_pengeluaran" class="form-control" placeholder="Total Harga" readonly>
     </div> --}}
-    <div class="form-group mb-2">
-        <label for="text" class="col-sm-2 col-form-label">Unit Peresediaan</label>
-        <input type="text" id="unit_persediaan" name="unit_persediaan" class="form-control" placeholder="Unit Persediaan">
+     <div class="form-group mb-2">
+        <label for="text" class="col-sm-2 col-form-label">Unit Pemasukkan</label>
+        <input type="text" id="unit_pemasukan" name="unit_pemasukan" class="form-control" placeholder="Unit Pemasukkan">
     </div>
     <div class="form-group mb-2">
-        <label for="text" class="col-sm-2 col-form-label">Harga Peresediaan</label>
-        <input type="text" id="harga_per_unit_persediaan" name="harga_per_unit_persediaan" class="form-control" placeholder="Harga Persediaan">
+        <label for="text" class="col-sm-2 col-form-label">Harga Pemasukkan</label>
+        <input type="text" id="harga_per_unit_pemasukan" name="harga_per_unit_pemasukan" class="form-control" placeholder="Harga Pemasukkan">
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Total Harga</label>
-        <input type="text" id="total_harga_persediaan" name="total_harga_persediaan" class="form-control" placeholder="Total Harga" readonly>
+        <input type="text" id="total_harga_pemasukan" name="total_harga_pemasukan" class="form-control" placeholder="Total Harga" readonly>
     </div>
     <div class="form-group mb-3">
         <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
@@ -59,27 +59,27 @@
     </div>
 
     <script>
-      // var inputPemasukan = document.getElementById("unit_pemasukan");
-      // var inputPemasukanHarga = document.getElementById("harga_per_unit_pemasukan");
-      // var inputTotalPemasukan = document.getElementById("total_harga_pemasukan");
+      var inputPemasukan = document.getElementById("unit_pemasukan");
+      var inputPemasukanHarga = document.getElementById("harga_per_unit_pemasukan");
+      var inputTotalPemasukan = document.getElementById("total_harga_pemasukan");
 
       // var inputPengeluaran = document.getElementById("unit_pengeluaran");
       // var inputPengeluaranHarga = document.getElementById("harga_per_unit_pengeluaran");
       // var inputTotalPengeluaran = document.getElementById("total_harga_pengeluaran");
 
-      var inputPersediaan = document.getElementById("unit_persediaan");
-      var inputPersediaanHarga = document.getElementById("harga_per_unit_persediaan");
-      var inputTotalPersediaan = document.getElementById("total_harga_persediaan");
+      // var inputPersediaan = document.getElementById("unit_persediaan");
+      // var inputPersediaanHarga = document.getElementById("harga_per_unit_persediaan");
+      // var inputTotalPersediaan = document.getElementById("total_harga_persediaan");
 
       function totalBiaya(unit) {
           switch (unit) {
-            // case 'pemasukan':
-            //   if (inputPemasukan.value && inputPemasukanHarga.value) {
-            //     inputTotalPemasukan.value = inputPemasukan.value * inputPemasukanHarga.value;
-            //   } else {
-            //     inputTotalPemasukan.value = null;
-            //   }
-            //   break;
+            case 'pemasukan':
+              if (inputPemasukan.value && inputPemasukanHarga.value) {
+                inputTotalPemasukan.value = inputPemasukan.value * inputPemasukanHarga.value;
+              } else {
+                inputTotalPemasukan.value = null;
+              }
+              break;
             // case 'pengeluaran':
             //   if (inputPengeluaran.value && inputPengeluaranHarga.value) {
             //     inputTotalPengeluaran.value = inputPengeluaran.value * inputPengeluaranHarga.value;
@@ -87,24 +87,24 @@
             //     inputTotalPengeluaran.value = null;
             //   }
             //   break;
-            case 'persediaan':
-              if (inputPersediaan.value && inputPersediaanHarga.value) {
-                inputTotalPersediaan.value = inputPersediaan.value * inputPersediaanHarga.value;
-              } else {
-                inputTotalPersediaan.value = null;
-              }
-              break;
+            // case 'persediaan':
+            //   if (inputPersediaan.value && inputPersediaanHarga.value) {
+            //     inputTotalPersediaan.value = inputPersediaan.value * inputPersediaanHarga.value;
+            //   } else {
+            //     inputTotalPersediaan.value = null;
+            //   }
+            //   break;
             default:
               break;
           }
       }
 
-      // inputPemasukan.addEventListener("keyup", function() {
-      //     totalBiaya('pemasukan')
-      // });
-      // inputPemasukanHarga.addEventListener("keyup", function() {
-      //     totalBiaya('pemasukan')
-      // });
+      inputPemasukan.addEventListener("keyup", function() {
+          totalBiaya('pemasukan')
+      });
+      inputPemasukanHarga.addEventListener("keyup", function() {
+          totalBiaya('pemasukan')
+      });
 
       // inputPengeluaran.addEventListener("keyup", function() {
       //     totalBiaya('pengeluaran')
@@ -113,12 +113,12 @@
       //     totalBiaya('pengeluaran')
       // });
 
-      inputPersediaan.addEventListener("keyup", function() {
-          totalBiaya('persediaan')
-      });
-      inputPersediaanHarga.addEventListener("keyup", function() {
-          totalBiaya('persediaan')
-      });
+      // inputPersediaan.addEventListener("keyup", function() {
+      //     totalBiaya('persediaan')
+      // });
+      // inputPersediaanHarga.addEventListener("keyup", function() {
+      //     totalBiaya('persediaan')
+      // });
     </script>
   </form>
 
