@@ -27,6 +27,7 @@
           <th colspan="3">Pengeluaran</th>
           <th colspan="3">Peresediaan</th>
           <th rowspan="2">Keterangan</th>
+          <th rowspan="2">Action</th>
         <tr>
           <th>Unit</th>
           <th>Harga/Unit</th>
@@ -34,6 +35,7 @@
           <th>Unit</th>
           <th>Harga/Unit</th>
           <th>Total Harga</th>
+          
         </tr>
         @foreach ($kartustok as $item)
         <tr>
@@ -53,6 +55,11 @@
           <td>Rp {{ $item->harga_per_unit_persediaan }}</td>
           <td>Rp {{ $item->total_harga_persediaan }}</td>
           <td>{{ $item->keterangan }}</td>
+          <td>
+            <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
+            | 
+            <a href="{{ url('/KartuStok/delete-kartustok', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
+          </td>
         </tr>
         @endforeach
       </table>

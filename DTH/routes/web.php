@@ -6,8 +6,7 @@ use App\Http\Controllers\NPWPController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
-use App\Http\Controllers\TriwulanController;
-use App\Models\NPWP;
+
 
 /*
 |--------------------------------------------------------------------------

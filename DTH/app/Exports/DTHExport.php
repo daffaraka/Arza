@@ -19,7 +19,7 @@ class DTHExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return  [
-            '#','kode_akun', 'jenis_pajak','nominal_pajak','npwp','nama_wp',
+            '#','Kode Akun', 'jenis_pajak','nominal_pajak','npwp','nama_wp',
             'ntpn','id_billing','keperluan','jumlah','bulan','triwulan'
         ];
     }

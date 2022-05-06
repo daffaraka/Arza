@@ -7,9 +7,9 @@
     <div class="btn-group me-2">
       <a href="/DTH/Cetak-DTH" target="_blank" class="btn btn-sm btn-outline-secondary">PDF <span data-feather="printer"></span></a>
     </div>
-    <div class="btn-group me-2">
+    {{-- <div class="btn-group me-2">
       <a href="/DTH/Export-DTH" target="_blank" class="btn btn-sm btn-outline-secondary">Excel <span data-feather="printer"></span></a>
-    </div>
+    </div> --}}
   </div>
 </div>
 
@@ -59,8 +59,6 @@
           <th>Triwulan</th>
           <th>ID Billing</th>
           <th>Keperluan</th>
-          <th>Bulan</th>
-          <th>Triwulan</th>
           <th>Action</th>
         </tr>
         @foreach ($dth as $item)
@@ -75,8 +73,6 @@
           <td>{{ $item->triwulan}}</td>
           <td>{{ $item->id_billing }}</td>
           <td>{{ $item->keperluan }}</td>
-          <td>{{ $item->bulan}}</td>
-          <td>{{ $item->triwulan}}</td>
           <td>
             <a href="{{ url('/DTH/Edit-DTH', $item->id) }}"><span data-feather="edit"></span></a>
             | 

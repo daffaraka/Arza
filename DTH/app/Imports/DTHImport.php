@@ -23,6 +23,8 @@ class DTHImport implements ToModel
             'ntpn' => $row[6],
             'id_billing' => $row[7],
             'keperluan' => $row[8],
+            'bulan' => $row[9],
+            'triwulan' => $row[10]
         ]);
     }
 }

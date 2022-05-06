@@ -122,15 +122,10 @@ class KartuStokController extends Controller
 
 
         $kartustok = KartuStok::findOrFail($id);
-        $kartustok->decrement('unit_persediaan',$request->unit_pengeluaran);
-        $kartustok->decrement('total_harga_persediaan',$request->total_harga_pengeluaran);
-
-        dd($request->all());
-        // $kartustok->update([
-        //     'unit_persediaan' = 
-        // ]);
         $kartustok->update($request->all());
-        return redirect('/KartuStok/index')->with('toast_success', 'Pengeluaran Kartu Stok Telah Ditambahkan!');
+        $kartustok->increment('unit_pengeluaran',$request->unit_pengeluaran);
+        $kartustok->decrement('unit_persediaan',$request->unit_pengeluaran);
+        return redirect('/KartuStok/index')->with('toast_success', 'Pengeluaran Kartu Stok Telah diperbarui!');
     }
 
 }
