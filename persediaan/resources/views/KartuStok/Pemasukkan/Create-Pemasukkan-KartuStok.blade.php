@@ -12,7 +12,7 @@
         <label for="text" class="col-sm-2 col-form-label">Nama Barang</label>
         <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{$kartustok->nama_barang}}" readonly>
     </div>
-  <div class="form-group mb-2">
+   <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Unit Pemasukkan</label>
         <input type="text" id="unit_pengeluaran" name="unit_pemasukan" class="form-control" placeholder="Unit Pemasukkan">
     </div>
