@@ -51,9 +51,16 @@
             <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
           @endif
         
+          @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
+          <td colspan="3"> - <br>
+            {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
+          </td>
+
+        @else
           <td></td>
           <td></td>
           <td></td>
+        @endif
           
           @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
             <td colspan="3"> - <br>
@@ -73,9 +80,15 @@
           </td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
+            <td colspan="3"> - <br>
+              {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
+            </td>
+          @else
+            <td></td>
+            <td></td>
+            <td></td>
+          @endif
           
           @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
             <td colspan="3"> - <br>
@@ -98,7 +111,7 @@
             <td>Rp {{ number_format($item->harga_per_unit_pengeluaran) }}</td>
             <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
           @endif
-          
+
           <td></td>
         </tr>
         @endforeach
