@@ -56,7 +56,7 @@
           <td>Rp {{ $item->total_harga_persediaan }}</td>
           <td>{{ $item->keterangan }}</td>
           <td>
-            <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
+            <a href="{{url('/Pengeluaran-KartuStok/Tambah-Pengeluaran',$item->id)}}"><span data-feather="edit"></span></a>
             | 
             <a href="{{ url('/KartuStok/delete-kartustok', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
           </td>

@@ -39,13 +39,13 @@ Route::post('/DTH/simpan_dth', [DTHController::class, 'store' ]);
 
 Route::get('/DTH/Edit-DTH/{id}', [DTHController::class, 'edit' ]);
 Route::post('/DTH/update_dth/{id}', [DTHController::class, 'update' ]);
-
 Route::get('/DTH/delete-dth/{id}', [DTHController::class, 'destroy' ]);
-
 Route::get('/DTH/Export-DTH', [DTHController::class, 'dthexport' ]);
 Route::post('/DTH/Import-DTH', [DTHController::class, 'dthimport' ]);
-
 Route::get('/DTH/Cetak-DTH', [DTHController::class, 'cetakdth' ]);
+Route::get('/DTH/search', [DTHController::class,'search'])->name('search');
+
+
 Route::get('/NPWP',[NPWPController::class, 'index' ])->name('NPWP.index');
 Route::get('/NPWP/create',[NPWPController::class, 'index' ])->name('NPWP.create');
 Route::get('/NPWP/{id}/edot',[NPWPController::class, 'edit' ])->name('NPWP.edit');

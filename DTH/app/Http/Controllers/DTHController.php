@@ -7,14 +7,11 @@ use Illuminate\Http\Request;
 use App\Exports\DTHExport;
 use App\Imports\DTHImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Spatie\Searchable\ModelSearchAspect;
+use Spatie\Searchable\Search;
 
 class DTHController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $dth = DTH::all();
@@ -40,22 +37,11 @@ class DTHController extends Controller
         return view('DTH.Cetak-DTH', compact('cetakdth'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('DTH.Create-DTH');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
        
@@ -75,36 +61,17 @@ class DTHController extends Controller
         return redirect('/DTH/index')->with('toast_success', 'DTH Tersimpan!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $dth = DTH::findorfail($id);
         return view('DTH.Edit-DTH', compact('dth'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $dth = DTH::findorfail($id);
@@ -112,16 +79,22 @@ class DTHController extends Controller
         return redirect('/DTH/index')->with('toast_success', 'DTH Berhasil Diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $dth = DTH::findorfail($id);
         $dth->delete();
         return back()->with('info', 'DTH Berhasil Dihapus!');
+    }
+    
+    public function search(Request $request)
+    {
+        $searchterm = $request->input('query');
+            $searchResults = (new Search())
+            ->registerModel(DTH::class, function(ModelSearchAspect $modelSearchAspect){
+                $modelSearchAspect->addSearchableAttribute('namakegiatan')
+                ->addExactSearchableAttribute('provinsi')
+                ->addExactSearchableAttribute('kota')
+                ->addExactSearchableAttribute('waktu');
+            })->perform($searchterm);
     }
 }

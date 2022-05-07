@@ -23,29 +23,31 @@
     </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Silahkan Import Data</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="/DTH/Import-DTH" method="post" enctype="multipart/form-data">
-        @csrf
-      <div class="modal-body">
-        <div class="form-group">
-          <input type="file" name="file" required="required">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Silahkan Import Data</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="/DTH/Import-DTH" method="post" enctype="multipart/form-data">
+            @csrf
+          <div class="modal-body">
+            <div class="form-group">
+              <input type="file" name="file" required="required">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Import Data</button>
+          </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary">Import Data</button>
+        </form>
       </div>
     </div>
-    </form>
-  </div>
-</div>
-
+    <div class="col-lg-2 mt-3">
+      <input type="text" required class="form-control" name="query" value="{{ isset($searchterm) ? $searchterm : ''  }}" placeholder="Pencarian">
+    </div>
     <div class="card-body text-center">
       <table class="table table-bordered">
         <tr>
@@ -55,10 +57,10 @@
           <th>NPWP</th>
           <th>Nama WP</th>
           <th>NTPN</th>
-          <th>Bulan</th>
-          <th>Triwulan</th>
           <th>ID Billing</th>
           <th>Keperluan</th>
+          <th>Bulan</th>
+          <th>Triwulan</th>
           <th>Action</th>
         </tr>
         @foreach ($dth as $item)
@@ -69,10 +71,10 @@
           <td>{{ $item->npwp }}</td>
           <td>{{ $item->nama_wp }}</td>
           <td>{{ $item->ntpn }}</td>
-          <td>{{ $item->bulan}}</td>
-          <td>{{ $item->triwulan}}</td>
           <td>{{ $item->id_billing }}</td>
           <td>{{ $item->keperluan }}</td>
+          <td>{{ $item->bulan}}</td>
+          <td>{{ $item->triwulan}}</td>
           <td>
             <a href="{{ url('/DTH/Edit-DTH', $item->id) }}"><span data-feather="edit"></span></a>
             | 

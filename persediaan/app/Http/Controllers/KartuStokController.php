@@ -107,7 +107,7 @@ class KartuStokController extends Controller
     public function indexPengeluaranKartuStok()
     {
         $kartustok = KartuStok::all();
-    return view('KartuStok.Pengeluaran.Index-Pengeluaran-KartuStok',compact('kartustok'));
+                 return view('KartuStok.Pengeluaran.Index-Pengeluaran-KartuStok',compact('kartustok'));
     }
 
     public function createPengeluaran($id)
@@ -125,7 +125,7 @@ class KartuStokController extends Controller
         $kartustok->update($request->all());
         $kartustok->increment('unit_pengeluaran',$request->unit_pengeluaran);
         $kartustok->decrement('unit_persediaan',$request->unit_pengeluaran);
-        return redirect('/KartuStok/index')->with('toast_success', 'Pengeluaran Kartu Stok Telah diperbarui!');
+        return redirect('/Pengeluaran-KartuStok/index')->with('toast_success', 'Pengeluaran Kartu Stok Telah diperbarui!');
     }
 
 }
