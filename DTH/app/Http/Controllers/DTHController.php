@@ -91,10 +91,20 @@ class DTHController extends Controller
         $searchterm = $request->input('query');
             $searchResults = (new Search())
             ->registerModel(DTH::class, function(ModelSearchAspect $modelSearchAspect){
-                $modelSearchAspect->addSearchableAttribute('namakegiatan')
-                ->addExactSearchableAttribute('provinsi')
-                ->addExactSearchableAttribute('kota')
-                ->addExactSearchableAttribute('waktu');
+                $modelSearchAspect->addSearchableAttribute('kode_akun')
+                ->addExactSearchableAttribute('jenis_pajak')
+                ->addExactSearchableAttribute('nominal_pajak')
+                ->addExactSearchableAttribute('npwp')
+                ->addExactSearchableAttribute('nama_wp')
+                ->addExactSearchableAttribute('ntpn')
+                ->addExactSearchableAttribute('id_billing')
+                ->addExactSearchableAttribute('keperluan')
+                ->addExactSearchableAttribute('bulan')
+                ->addExactSearchableAttribute('triwulan')
+                ;
+                
             })->perform($searchterm);
+
+          dd($searchResults);
     }
 }

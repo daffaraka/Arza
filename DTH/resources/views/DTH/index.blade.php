@@ -45,9 +45,14 @@
         </form>
       </div>
     </div>
-    <div class="col-lg-2 mt-3">
-      <input type="text" required class="form-control" name="query" value="{{ isset($searchterm) ? $searchterm : ''  }}" placeholder="Pencarian">
-    </div>
+    <form method="get" action="{{route('search')}}" div class="row">
+      <div class="col-lg-2 mt-3">
+        <input type="text" required class="form-control" name="query" value="{{ isset($searchterm) ? $searchterm : ''  }}" placeholder="Pencarian">
+      </div>
+      <div class="col-lg-2 mt-3">
+        <button type="submit" class="btn btn-primary">Pencarian</button>
+     </div>
+    </form>
     <div class="card-body text-center">
       <table class="table table-bordered">
         <tr>
