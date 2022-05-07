@@ -38,19 +38,44 @@
         </tr>
         @foreach ($kartustok as $item)
         <tr>
-          <td>{{ $item->tanggal }}</td>
-          <td>{{ $item->nama_barang }}</td>
+          <td rowspan="2">{{ $item->tanggal }}</td>
+          <td rowspan="2">{{ $item->nama_barang }}</td>
+          
           @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
-          <td colspan="3"> - <br>
-            {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
-          </td>
-
+            <td colspan="3"> - <br>
+              {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
+            </td>
           @else
             <td>{{ $item->unit_pemasukan }}</td>
-            <td>Rp {{number_format($item->harga_per_unit_pemasukan) }}</td>
-            <td>Rp {{ $item->total_harga_pemasukan }}</td>
+            <td>Rp {{ number_format($item->harga_per_unit_pemasukan) }}</td>
+            <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
           @endif
         
+          <td></td>
+          <td></td>
+          <td></td>
+          
+          @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
+            <td colspan="3"> - <br>
+              {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
+            </td>
+          @else
+            <td>{{ $item->unit_pemasukan }}</td>
+            <td>Rp {{ number_format($item->harga_per_unit_pemasukan) }}</td>
+            <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
+          @endif
+          
+          <td>{{ $item->keterangan }}</td>
+          <td rowspan="2">
+            <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
+            | 
+            <a href="{{ url('/KartuStok/delete-kartustok', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
           
           @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
             <td colspan="3"> - <br>
@@ -59,23 +84,91 @@
 
           @else
             <td>{{ $item->unit_pengeluaran }}</td>
-            <td>Rp {{ $item->harga_per_unit_pengeluaran }}</td>
-            <td>Rp {{ $item->total_harga_pengeluaran }}</td>
+            <td>Rp {{ number_format($item->harga_per_unit_pengeluaran) }}</td>
+            <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
           @endif
-          <td>{{ $item->unit_persediaan }}</td>
-          <td>Rp {{ $item->harga_per_unit_persediaan }}</td>
-          <td>Rp {{ $item->total_harga_persediaan }}</td>
-          <td>{{ $item->keterangan }}</td>
-          <td>
-            <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
-            | 
-            <a href="{{ url('/KartuStok/delete-kartustok', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
-          </td>
+
+          @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
+            <td colspan="3"> - <br>
+              {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
+            </td>
+
+          @else
+            <td>{{ $item->unit_pengeluaran }}</td>
+            <td>Rp {{ number_format($item->harga_per_unit_pengeluaran) }}</td>
+            <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
+          @endif
+          
+          <td></td>
         </tr>
         @endforeach
+        <tr class="fw-bold" style="background-color: #f7f7f7;">
+          <td colspan="4">Total</td>
+          <td id="total_pemasukan"></td>
+          <td colspan="2">
+            -
+          </td>
+          <td id="total_pengeluaran"></td>
+          <td colspan="2">
+            -
+          </td>
+          <td id="total_persediaan"></td>
+          <td colspan="2">
+            -
+          </td>
+        </tr>
       </table>
     </div>
   </div>
+
+  <script>
+    function thousandSeparator(amount) {
+      if (amount) {
+        var result = amount
+            .toString()
+            .replace(/,/g, '')
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      } else {
+        var result = 0;
+      }
+  
+      return result;
+    }
+  </script>
+  
+  <script>
+    var kartustok = {!! json_encode($kartustok) !!};
+    var totalPemasukan = document.getElementById("total_pemasukan");
+    var totalPengeluaran = document.getElementById("total_pengeluaran");
+    var totalPersediaan = document.getElementById("total_persediaan");
+    var dataTotalPemasukan = [];
+    var dataTotalPengeluaran = [];
+    var dataTotalPersediaan = [];
+  
+    if (kartustok.length > 0) {
+        for (let i = 0; i < kartustok.length; i++) {
+          dataTotalPemasukan.push(parseInt(kartustok[i].total_harga_pemasukan))
+          dataTotalPengeluaran.push(parseInt(kartustok[i].total_harga_pengeluaran))
+          dataTotalPersediaan.push(parseInt(kartustok[i].total_harga_persediaan))
+        }
+    } else {
+        dataTotalPemasukan.push(parseInt(0))
+        dataTotalPengeluaran.push(parseInt(0))
+        dataTotalPersediaan.push(parseInt(0))
+    }
+  
+    const sumPemasukan = dataTotalPemasukan.reduce(add, 0);
+    const sumPengeluaran = dataTotalPengeluaran.reduce(add, 0);
+    const sumPersediaan = dataTotalPersediaan.reduce(add, 0);
+  
+    function add(val, a) {
+        return val + a;
+    }
+  
+    totalPemasukan.innerHTML = `Rp ${thousandSeparator(sumPemasukan)}`
+    totalPengeluaran.innerHTML = `Rp ${thousandSeparator(sumPengeluaran)}`
+    totalPersediaan.innerHTML = `Rp ${thousandSeparator(sumPersediaan)}`
+  </script>
 
   @include('sweetalert::alert')
 </div>
