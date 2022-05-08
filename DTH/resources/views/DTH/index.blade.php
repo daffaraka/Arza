@@ -55,7 +55,10 @@
         </div>
       </form>
     </div>
+<<<<<<< HEAD
+=======
     <div class="card-body text-center">
+>>>>>>> 734037de1580438696d5f326f3b0d64f03baec29
       <table class="table table-bordered">
         <tr>
           <th>Kode AKun</th>

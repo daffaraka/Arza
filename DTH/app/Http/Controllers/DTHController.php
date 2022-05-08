@@ -6,6 +6,7 @@ use App\Models\DTH;
 use Illuminate\Http\Request;
 use App\Exports\DTHExport;
 use App\Imports\DTHImport;
+use App\Models\NPWP;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Searchable\ModelSearchAspect;
 use Spatie\Searchable\Search;
@@ -39,12 +40,13 @@ class DTHController extends Controller
 
     public function create()
     {
-        return view('DTH.Create-DTH');
+        $npwp = NPWP::all();
+        return view('DTH.Create-DTH',compact('npwp'));
     }
 
     public function store(Request $request)
     {
-       
+    //    dd($request->all());
         DTH::create([
             'kode_akun' => $request->kode_akun,
             'jenis_pajak' => $request->jenis_pajak,
@@ -57,6 +59,7 @@ class DTHController extends Controller
             'bulan' => $request->bulan,
             'triwulan' => $request->triwulan,
         ]);
+    
 
         return redirect('/DTH/index')->with('toast_success', 'DTH Tersimpan!');
     }
@@ -93,13 +96,13 @@ class DTHController extends Controller
             ->registerModel(DTH::class, function(ModelSearchAspect $modelSearchAspect){
                 $modelSearchAspect->addSearchableAttribute('kode_akun')
                 ->addExactSearchableAttribute('jenis_pajak')
-                ->addExactSearchableAttribute('nominal_pajak')
+                ->addSearchableAttribute('nominal_pajak')
                 ->addExactSearchableAttribute('npwp')
                 ->addExactSearchableAttribute('nama_wp')
                 ->addExactSearchableAttribute('ntpn')
-                ->addExactSearchableAttribute('id_billing')
-                ->addExactSearchableAttribute('keperluan')
-                ->addExactSearchableAttribute('bulan')
+                ->addSearchableAttribute('id_billing')
+                ->addSearchableAttribute('keperluan')
+                ->addSearchableAttribute('bulan')
                 ->addExactSearchableAttribute('triwulan')
                 ;
                 

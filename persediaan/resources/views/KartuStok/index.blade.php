@@ -72,7 +72,7 @@
             <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
           @endif
           
-          <td>{{ $item->keterangan }}</td>
+          <td>{{ $item->keterangan_1 }}</td>
           <td rowspan="2">
             <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
             | 
@@ -112,29 +112,25 @@
             <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
           @endif
 
-          <td>{{ $item->keterangan }}</td>
+          <td>{{ $item->keterangan_2 }}</td>
         </tr>
         @endforeach
-        <tr class="fw-bold" style="background-color: #f7f7f7;">
+        {{-- <tr class="fw-bold" style="background-color: #f7f7f7;">
           <td colspan="4">Total</td>
           <td id="total_pemasukan"></td>
           <td colspan="2">
             -
           </td>
           <td id="total_pengeluaran"></td>
-          <td colspan="2">
+          <td colspan="5">
             -
           </td>
-          <td id="total_persediaan"></td>
-          <td colspan="2">
-            -
-          </td>
-        </tr>
+        </tr> --}}
       </table>
     </div>
   </div>
 
-  <script>
+  {{-- <script>
     function thousandSeparator(amount) {
       if (amount) {
         var result = amount
@@ -181,7 +177,7 @@
     totalPemasukan.innerHTML = `Rp ${thousandSeparator(sumPemasukan)}`
     totalPengeluaran.innerHTML = `Rp ${thousandSeparator(sumPengeluaran)}`
     totalPersediaan.innerHTML = `Rp ${thousandSeparator(sumPersediaan)}`
-  </script>
+  </script> --}}
 
   @include('sweetalert::alert')
 </div>

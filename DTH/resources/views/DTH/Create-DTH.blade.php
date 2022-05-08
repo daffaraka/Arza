@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.main')
-
+<title>Tambah DTH </title>
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">DTH</h1>
@@ -30,7 +30,9 @@
         <label for="number" class="col-sm-2 col-form-label">NPWP</label>
         <select class="form-select" aria-label="Default select example" id="select_npwp">
             <option selected disabled>- Pilih NPWP -</option>
-            <option value="Bagus | Value">Value</option>
+            @foreach ($npwp as $pilihan)
+            <option id="select_{{$pilihan->npwp}}" value="{{$pilihan->npwp}} | {{$pilihan->nama_wp}}">{{$pilihan->npwp}}</option>
+            @endforeach
         </select>
         <input type="text" id="npwp" name="npwp" class="d-none" placeholder="Keperluan">
       </div>
@@ -87,8 +89,8 @@
       var inputTriwulan = document.getElementById("triwulan");
 
       selectNPWP.addEventListener("change", function() {
-        inputNPWP.value = selectNPWP.value.split(" | ")[1];
-        inputNamaNPWP.value = selectNPWP.value.split(" | ")[0];
+        inputNPWP.value = selectNPWP.value.split(" | ")[0];
+        inputNamaNPWP.value = selectNPWP.value.split(" | ")[1];
       });
 
       selectBulan.addEventListener("change", function() {

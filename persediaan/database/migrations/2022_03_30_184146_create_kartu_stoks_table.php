@@ -26,7 +26,8 @@ class CreateKartuStoksTable extends Migration
             $table->string('unit_persediaan', 100)->nullable();
             $table->string('harga_per_unit_persediaan', 100)->nullable();
             $table->string('total_harga_persediaan', 100)->nullable();
-            $table->string('keterangan', 100);
+            $table->string('keterangan_1', 100);
+            $table->string('keterangan_2', 100);
             $table->timestamps();
         });
     }
