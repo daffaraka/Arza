@@ -43,8 +43,8 @@
         <input type="text" id="total_harga_pemasukan" name="total_harga_pemasukan" class="form-control" placeholder="Total Harga" readonly>
     </div>
     <div class="form-group mb-3">
-        <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
-        <select class="form-control select2 input-lg" name="keterangan" id="keterangan" >
+        <label for="text" class="col-sm-2 col-form-label">Keterangan Pertama</label>
+        <select class="form-control select2 input-lg" name="keterangan_1" id="keterangan_1" >
           <option selected disabled>Silahkan Pilih</option>
           <option value="Alat Tulis Kantor" >Alat Tulis Kantor</option>
           <option value="Belanja Alat Cetak Kantor" >Belanja Alat Cetak Kantor</option>
@@ -53,6 +53,11 @@
           <option value="Belanja Materai dan Benda Pos Lainnya" >Belanja Materai dan Benda Pos Lainnya</option>
           <option value="TU / Bidang" >TU / Bidang</option>
         </select>
+      </div>
+      <div class="form-group mb-3">
+        <label for="text" class="col-sm-2 col-form-label">Keterangan Kedua</label>
+        <input type="text" id="keterangan_2" name="keterangan_2" class="form-control" placeholder="Keterangan kedua">
+
       </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Simpan</button>

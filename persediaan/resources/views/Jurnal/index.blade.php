@@ -56,7 +56,7 @@
       <tr>
         
         <td rowspan="2">{{ $item->tanggal }}</td>
-        <td class="text-start">{{ $item->uraian_debit }}</td>
+        <td>{{ $item->uraian_debit }}</td>
         <td class="text-start">Rp {{ number_format($item->debit) }}</td>
         <td style="background-color: #f7f7f7;"></td>
         <td rowspan="2">
@@ -66,7 +66,7 @@
         </td>
       </tr>
       <tr>
-        <td class="text-end">{{ $item->uraian_kredit }}</td>
+        <td>{{ $item->uraian_kredit }}</td>
         <td style="background-color: #f7f7f7;"></td>
         <td class="text-end">Rp {{ number_format($item->kredit) }}</td>
       </tr>

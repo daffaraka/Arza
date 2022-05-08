@@ -72,7 +72,8 @@
             <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
           @endif
           
-          <td>{{ $item->keterangan }}</td>
+          <td>{{ $item->keterangan_1 }}, [ini keterangan 1]</td>
+          <td>Ini aku masih salah, ntar fix in disini, ini buat data keterangan_2 :v, harus nya di bawah nya keterangan_1</td>
           <td rowspan="2">
             <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
             | 

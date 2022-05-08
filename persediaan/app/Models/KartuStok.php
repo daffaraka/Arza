@@ -14,6 +14,6 @@ class KartuStok extends Model
     protected $fillable = [
         'id','tanggal','nama_barang','unit_pemasukan', 'harga_per_unit_pemasukan','total_harga_pemasukan',
         'unit_pengeluaran', 'harga_per_unit_pengeluaran','total_harga_pengeluaran',
-        'unit_persediaan', 'harga_per_unit_persediaan','total_harga_persediaan','keterangan'
+        'unit_persediaan', 'harga_per_unit_persediaan','total_harga_persediaan','keterangan_1','keterangan_2'
     ];
 }
