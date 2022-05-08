@@ -55,6 +55,11 @@
         </div>
       </form>
     </div>
+
+    <script>
+      var dth = {!! json_encode($searchResults) !!};
+      console.log(dth);
+    </script>
     <div class="card-body text-center">
       <table class="table table-bordered">
         <tr>
@@ -70,22 +75,22 @@
           <th>Triwulan</th>
           <th>Action</th>
         </tr>
-        @foreach ($dth as $item)
+        @foreach ($searchResults as $item)
         <tr>
-          <td>{{ $item->kode_akun }}</td>
-          <td>{{ $item->jenis_pajak }}</td>
-          <td>Rp {{ $item->nominal_pajak }}</td>
-          <td>{{ $item->npwp }}</td>
-          <td>{{ $item->nama_wp }}</td>
-          <td>{{ $item->ntpn }}</td>
-          <td>{{ $item->id_billing }}</td>
-          <td>{{ $item->keperluan }}</td>
-          <td>{{ $item->bulan}}</td>
-          <td>{{ $item->triwulan}}</td>
+          <td>{{ $item->searchable->kode_akun }}</td>
+          <td>{{ $item->searchable->jenis_pajak }}</td>
+          <td>Rp {{ $item->searchable->nominal_pajak }}</td>
+          <td>{{ $item->searchable->npwp }}</td>
+          <td>{{ $item->searchable->nama_wp }}</td>
+          <td>{{ $item->searchable->ntpn }}</td>
+          <td>{{ $item->searchable->id_billing }}</td>
+          <td>{{ $item->searchable->keperluan }}</td>
+          <td>{{ $item->searchable->bulan}}</td>
+          <td>{{ $item->searchable->triwulan}}</td>
           <td>
-            <a href="{{ url('/DTH/Edit-DTH', $item->id) }}"><span data-feather="edit"></span></a>
+            <a href="{{ url('/DTH/Edit-DTH', $item->searchable->id) }}"><span data-feather="edit"></span></a>
             | 
-            <a href="{{ url('/DTH/delete-dth', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
+            <a href="{{ url('/DTH/delete-dth', $item->searchable->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
           </td>
         </tr>
         @endforeach
@@ -99,13 +104,13 @@
   </div>
 
   <script>
-    var dth = {!! json_encode($dth) !!};
+    var data = {!! json_encode($searchResults) !!};
     var total = document.getElementById("total_nominal");
     var dataNominal = [];
 
-    if (dth.length > 0) {
-        for (let i = 0; i < dth.length; i++) {
-            dataNominal.push(parseInt(dth[i].nominal_pajak))
+    if (data.length > 0) {
+        for (let i = 0; i < data.length; i++) {
+            dataNominal.push(parseInt(data[i].searchable.nominal_pajak))
         }
     } else {
         dataNominal.push(0)

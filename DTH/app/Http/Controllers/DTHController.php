@@ -89,7 +89,7 @@ class DTHController extends Controller
     public function search(Request $request)
     {
         $searchterm = $request->input('query');
-            $searchResults = (new Search())
+        $searchResults = (new Search())
             ->registerModel(DTH::class, function(ModelSearchAspect $modelSearchAspect){
                 $modelSearchAspect->addSearchableAttribute('kode_akun')
                 ->addExactSearchableAttribute('jenis_pajak')
@@ -105,6 +105,6 @@ class DTHController extends Controller
                 
             })->perform($searchterm);
 
-        return view('nama view buat nampung hasil search', compact(['searchterm','searchResults']))
+        return view('DTH.Search', compact(['searchterm','searchResults']));
     }
 }
