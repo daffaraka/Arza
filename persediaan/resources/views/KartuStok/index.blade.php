@@ -38,9 +38,13 @@
         </tr>
         @foreach ($kartustok as $item)
         <tr>
+          {{-- Data Tanggal --}}
           <td rowspan="2">{{ $item->tanggal }}</td>
+
+          {{-- Data Nama Barang --}}
           <td rowspan="2">{{ $item->nama_barang }}</td>
           
+          {{-- Data Pemasukkan --}}
           @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
             <td colspan="3"> - <br>
               {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
@@ -56,18 +60,19 @@
             {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
           </td>
 
-        @else
+          @else
           <td></td>
           <td></td>
           <td></td>
         @endif
           
+
           @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
             <td colspan="3"> - <br>
               {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
             </td>
           @else
-            <td>{{ $item->unit_pemasukan }}</td>
+            <td>{{ $item->unit_persediaan }}</td>
             <td>Rp {{ number_format($item->harga_per_unit_pemasukan) }}</td>
             <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
           @endif
@@ -79,6 +84,7 @@
             <a href="{{ url('/KartuStok/delete-kartustok', $item->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
           </td>
         </tr>
+
         <tr>
           @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
             <td colspan="3"> - <br>
@@ -90,6 +96,7 @@
             <td></td>
           @endif
           
+          {{-- Untuk Data Pengeluaran --}}
           @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
             <td colspan="3"> - <br>
               {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}

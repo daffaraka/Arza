@@ -13,11 +13,7 @@
 </div>
 
 <div class="content">
-    <div class="card-header">
-      <div class="card-tools">
-        <a href="/KartuStok/Create-KartuStok" class="btn btn-success">Tambah Data<i class="fas fa-plus-square"></i></a>
-      </div>
-    </div>
+    
     <div class="card-body text-center">
       <table class="table table-bordered">
         <tr>
@@ -26,7 +22,6 @@
         </tr>
           <th colspan="3">Pengeluaran</th>
           <th colspan="3">Peresediaan</th>
-          <th rowspan="2">Keterangan</th>
           <th rowspan="2">Action</th>
         <tr>
           <th>Unit</th>
@@ -54,7 +49,7 @@
           <td>{{ $item->unit_persediaan }}</td>
           <td>Rp {{ $item->harga_per_unit_persediaan }}</td>
           <td>Rp {{ $item->total_harga_persediaan }}</td>
-          <td>{{ $item->keterangan }}</td>
+          
           <td>
             <a href="{{url('/Pengeluaran-KartuStok/Tambah-Pengeluaran',$item->id)}}"><span data-feather="edit"></span></a>
             | 

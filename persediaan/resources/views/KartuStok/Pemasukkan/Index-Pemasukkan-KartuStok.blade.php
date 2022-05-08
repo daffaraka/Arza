@@ -52,7 +52,7 @@
           <td>{{ $item->unit_persediaan }}</td>
           <td>Rp {{ $item->harga_per_unit_persediaan }}</td>
           <td>Rp {{ $item->total_harga_persediaan }}</td>
-          <td>{{ $item->keterangan }}</td>
+          <td>{{ $item->keterangan_1 }}</td>
           <td> 
            <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
             | 
