@@ -108,6 +108,6 @@ class DTHController extends Controller
                 
             })->perform($searchterm);
 
-            // dd($searchResults);
-            return view('DTH.Search', compact(['searchterm','searchResults']));    }
+        return view('DTH.Search', compact(['searchterm','searchResults']));
+    }
 }
