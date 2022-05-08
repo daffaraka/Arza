@@ -110,4 +110,6 @@ class DTHController extends Controller
 
         return view('DTH.Search', compact(['searchterm','searchResults']));
     }
+
+  
 }

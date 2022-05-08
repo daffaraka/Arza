@@ -25,11 +25,7 @@
         <label for="text" class="col-sm-2 col-form-label">Total Harga</label>
         <input type="text" id="total_harga_pengeluaran" name="total_harga_pengeluaran" class="form-control" placeholder="Total Harga" readonly>
     </div>
-    <div class="form-group mb-3">
-        <label for="text" class="col-sm-2 col-form-label">Keterangan</label>
-        <input class="form-control select2 input-lg" name="keterangan" id="keterangan" value="{{$kartustok->keterangan}}" readonly>
-      </div>
-    <div class="form-group pb-3">
+  
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
 

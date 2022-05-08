@@ -6,19 +6,21 @@ use App\Models\DTH;
 use Illuminate\Http\Request;
 use App\Exports\DTHExport;
 use App\Imports\DTHImport;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class TriwulanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        // $dth = DTH::all();
-        return view('Triwulan.index');
+        // $dths = DB::table('dth')->select('');
+        $dth = DTH::all();
+        $groupedQuarterly = $dth->mapToGroups(function ($item, $key) {
+            return [$item['triwulan'] => $item];
+        })->toArray();
+     
+        return view('Triwulan.index',['groupedQuarterly'=>$groupedQuarterly]);
     }
 
     public function dthexport(){
@@ -40,22 +42,13 @@ class TriwulanController extends Controller
         return view('DTH.Cetak-DTH', compact('cetakdth'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
         return view('Triwulan.Create-Triwulan');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
         DTH::create([
@@ -72,36 +65,20 @@ class TriwulanController extends Controller
         return redirect('/DTH/index')->with('toast_success', 'DTH Tersimpan!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
         $dth = DTH::findorfail($id);
         return view('DTH.Edit-DTH', compact('dth'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request, $id)
     {
         $dth = DTH::findorfail($id);
@@ -109,12 +86,7 @@ class TriwulanController extends Controller
         return redirect('/DTH/index')->with('toast_success', 'DTH Berhasil Diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         $dth = DTH::findorfail($id);

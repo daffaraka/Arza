@@ -52,7 +52,7 @@ class KartuStokController extends Controller
             'harga_per_unit_persediaan'=>$request->harga_per_unit_pemasukan,
             'total_harga_persediaan'=>$request->total_harga_pemasukan,
             'keterangan_1'=>$request->keterangan_1,
-            'keterangan_2'=>$request->keterangan_2,
+            'keterangan_2'=> 'TU/Bidang',
 
         ]);
 
