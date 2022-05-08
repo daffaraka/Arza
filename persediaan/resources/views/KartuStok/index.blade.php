@@ -112,7 +112,7 @@
             <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
           @endif
 
-          <td></td>
+          <td>{{ $item->keterangan }}</td>
         </tr>
         @endforeach
         <tr class="fw-bold" style="background-color: #f7f7f7;">
