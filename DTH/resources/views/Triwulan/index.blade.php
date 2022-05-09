@@ -15,7 +15,7 @@
     @foreach( $groupedQuarterly as $i => $quarter )
     <div>
     
-      {{-- Quarter {{ $i == '1' }}
+      Quarter {{ $i }}
       @foreach( $quarter as $data )
         @if ($data["bulan"] == 'Januari')
             <h1>ada januari</h1>
@@ -24,7 +24,7 @@
             <h1>ada juli</h1>
         @endif
         
-      @endforeach --}}
+      @endforeach
     </div>
     @endforeach
 

@@ -12,7 +12,10 @@
       <label for="number" class="col-sm-2 col-form-label">Kode Akun</label>
       <select class="form-select" aria-label="Default select example"  id="kode_akun" name="kode_akun">
           <option selected disabled>- Pilih Kode Akun -</option>
-          <option value="bagus">Code</option>
+          <option value="411211">411211</option>
+          <option value="411121">411121</option>
+          <option value="411124">411124</option>
+          <option value="411122">411122</option>
       </select>
     </div>
     <div class="form-group mb-2">
