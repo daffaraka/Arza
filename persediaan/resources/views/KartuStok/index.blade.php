@@ -65,18 +65,16 @@
           <td></td>
           <td></td>
         @endif
-          
-
-          @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
+            @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
             <td colspan="3"> - <br>
               {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
             </td>
+
           @else
-            <td>{{ $item->unit_persediaan }}</td>
-            <td>Rp {{ number_format($item->harga_per_unit_pemasukan) }}</td>
-            <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
+            <td>{{ $item->unit_pengeluaran }}</td>
+            <td>Rp {{ number_format($item->harga_per_unit_pengeluaran) }}</td>
+            <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
           @endif
-          
           <td>{{ $item->keterangan_1 }}</td>
           <td rowspan="2">
             <a href="{{ url('/KartuStok/Edit-KartuStok', $item->id) }}"><span data-feather="edit"></span></a>
@@ -108,15 +106,14 @@
             <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
           @endif
 
-          @if (empty($item->unit_pengeluaran && $item->harga_per_unit_pengeluaran && $item->total_harga_pengeluaran))
+          @if (empty($item->unit_pemasukan && $item->harga_per_unit_pemasukan && $item->total_harga_pemasukan))
             <td colspan="3"> - <br>
               {{-- <a href="{{url('/KartuStok/Tambah-Pengeluaran', $item->id)}}"><span data-feather="edit"></span> </a>  --}}
             </td>
-
           @else
-            <td>{{ $item->unit_pengeluaran }}</td>
-            <td>Rp {{ number_format($item->harga_per_unit_pengeluaran) }}</td>
-            <td>Rp {{ number_format($item->total_harga_pengeluaran) }}</td>
+            <td>{{ $item->unit_persediaan }}</td>
+            <td>Rp {{ number_format($item->harga_per_unit_pemasukan) }}</td>
+            <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
           @endif
 
           <td>{{ $item->keterangan_2 }}</td>

@@ -36,40 +36,40 @@
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NPWP</label>
-        <select class="form-select" aria-label="Default select example" id="npwp" name="npwp">
+        <select class="form-select" aria-label="Default select example" id="select_npwp">
             <option selected disabled>- Pilih NPWP -</option>
             @foreach ($npwp as $option)
-            <option value="bagus">{{$option->npwp}}</option>
+            <option value="{{$option->npwp}} | {{$option->nama_wp}}" {{$option->npwp == $dth->npwp ? 'selected' : ''}}>{{$option->npwp}}</option>
             @endforeach
         </select>
-        <input type="text" id="npwp" name="npwp" class="d-none" placeholder="Keperluan">
+        <input type="text" id="npwp" name="npwp" class="d-none" placeholder="Keperluan" value="{{$dth->npwp}}">
     </div>
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Nama WP</label>
-      <input type="text" id="nama_wp" name="nama_wp" class="form-control" placeholder="Nama WP" readonly>
+      <input type="text" id="nama_wp" name="nama_wp" class="form-control" placeholder="Nama WP" value={{$dth->nama_wp}} readonly>
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Bulan</label>
         <select class="form-select" aria-label="Default select example" id="select_bulan">
             <option selected disabled>- Pilih Bulan -</option>
-            <option value="1 | Januari">Januari</option>
-            <option value="1 | Februari">Februari</option>
-            <option value="1 | Maret">Maret</option>
-            <option value="2 | April">April</option>
-            <option value="2 | Mei">Mei</option>
-            <option value="2 | Juni">Juni</option>
-            <option value="3 | Juli">Juli</option>
-            <option value="3 | Agustus">Agustus</option>
-            <option value="3 | September">September</option>
-            <option value="4 | Oktober">Oktober</option>
-            <option value="4 | November">November</option>
-            <option value="4 | Desember">Desember</option>
+            <option value="1 | Januari" {{$dth->bulan == 'Januari' ? 'selected' : ''}}>Januari</option>
+            <option value="1 | Februari" {{$dth->bulan == 'Februari' ? 'selected' : ''}}>Februari</option>
+            <option value="1 | Maret" {{$dth->bulan == 'Maret' ? 'selected' : ''}}>Maret</option>
+            <option value="2 | April" {{$dth->bulan == 'April' ? 'selected' : ''}}>April</option>
+            <option value="2 | Mei" {{$dth->bulan == 'Mei' ? 'selected' : ''}}>Mei</option>
+            <option value="2 | Juni" {{$dth->bulan == 'Juni' ? 'selected' : ''}}>Juni</option>
+            <option value="3 | Juli" {{$dth->bulan == 'Juli' ? 'selected' : ''}}>Juli</option>
+            <option value="3 | Agustus" {{$dth->bulan == 'Agustus' ? 'selected' : ''}}>Agustus</option>
+            <option value="3 | September" {{$dth->bulan == 'September' ? 'selected' : ''}}>September</option>
+            <option value="4 | Oktober" {{$dth->bulan == 'Oktober' ? 'selected' : ''}}>Oktober</option>
+            <option value="4 | November" {{$dth->bulan == 'November' ? 'selected' : ''}}>November</option>
+            <option value="4 | Desember" {{$dth->bulan == 'Desember' ? 'selected' : ''}}>Desember</option>
         </select>
         <input type="text" id="bulan" name="bulan" class="d-none" placeholder="Keperluan">
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Triwulan</label>
-        <input type="text" id="triwulan" name="triwulan" class="form-control" placeholder="Triwulan ke" readonly>
+        <input type="text" id="triwulan" name="triwulan" class="form-control" placeholder="Triwulan ke" readonly value="{{$dth->triwulan}}">
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NTPN</label>
