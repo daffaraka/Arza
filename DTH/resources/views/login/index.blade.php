@@ -41,6 +41,7 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
         <p class="mt-5 mb-3 text-center">Politeknik Negeri Madiun 2022</p>
       </form>
+        <a href="{{route('register')}}" class="w-100 btn btn-lg btn-outline-primary" type="submit">Register</a>
   </main>
   </div>
 </div>

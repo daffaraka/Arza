@@ -7,9 +7,6 @@
     <div class="btn-group me-2">
       <a href="/NPWP/Cetak-NPWP" target="_blank" class="btn btn-sm btn-outline-secondary">PDF <span data-feather="printer"></span></a>
     </div>
-    <div class="btn-group me-2">
-      <a href="/NPWP/Export-NPWP" target="_blank" class="btn btn-sm btn-outline-secondary">Excel <span data-feather="printer"></span></a>
-    </div>
   </div>
 </div>
 

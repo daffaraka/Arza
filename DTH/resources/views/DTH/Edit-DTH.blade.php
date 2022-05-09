@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.main')
-
+<title>Edit DTH</title>
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">DTH</h1>
@@ -36,11 +36,11 @@
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">NPWP</label>
-        <select class="form-select" aria-label="Default select example" id="select_npwp">
-          <option selected disabled>- Pilih NPWP -</option>
-          {{-- @foreach ($npwp as $pilihan)
-          <option id="select_{{$pilihan->npwp}}" value="{{$pilihan->npwp}} | {{$pilihan->nama_wp}}">{{$pilihan->npwp}}</option>
-          @endforeach --}}
+        <select class="form-select" aria-label="Default select example" id="npwp" name="npwp">
+            <option selected disabled>- Pilih NPWP -</option>
+            @foreach ($npwp as $option)
+            <option value="bagus">{{$option->npwp}}</option>
+            @endforeach
         </select>
         <input type="text" id="npwp" name="npwp" class="d-none" placeholder="Keperluan">
     </div>
@@ -83,11 +83,8 @@
         <label for="text" class="col-sm-2 col-form-label">Keperluan</label>
         <input type="text" id="keperluan" name="keperluan" class="form-control" placeholder="Keperluan" value="{{$dth->keperluan}}">
     </div>
-    <div class="form-group mb-2">
-        <label for="number" class="col-sm-2 col-form-label">Jumlah</label>
-        <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah" value="{{$dth->jumlah}}">
-    </div>
-    <div class="form-group">
+
+    <div class="form-group mb-4">
       <button type="submit" class="btn btn-primary">Ubah</button>
     </div>
   </form>

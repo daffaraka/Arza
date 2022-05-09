@@ -15,15 +15,15 @@
     </div>
   <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Unit Pengeluaran</label>
-        <input type="text" id="unit_pengeluaran" name="unit_pengeluaran" class="form-control" placeholder="Unit Pengeluaran">
+        <input type="number" id="unit_pengeluaran" name="unit_pengeluaran" class="form-control" placeholder="Unit Pengeluaran">
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Harga Pengeluaran</label>
-        <input type="text" id="harga_per_unit_pengeluaran" name="harga_per_unit_pengeluaran" class="form-control" placeholder="Harga Pengeluaran">
+        <input type="number" id="harga_per_unit_pengeluaran" name="harga_per_unit_pengeluaran" class="form-control" placeholder="Harga Pengeluaran">
     </div>
     <div class="form-group mb-2">
         <label for="text" class="col-sm-2 col-form-label">Total Harga</label>
-        <input type="text" id="total_harga_pengeluaran" name="total_harga_pengeluaran" class="form-control" placeholder="Total Harga" readonly>
+        <input type="number" id="total_harga_pengeluaran" name="total_harga_pengeluaran" class="form-control" placeholder="Total Harga" readonly>
     </div>
   
       <button type="submit" class="btn btn-primary">Simpan</button>

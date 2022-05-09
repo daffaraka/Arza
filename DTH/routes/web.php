@@ -24,7 +24,7 @@ Route::post('/login', [LoginController::class, 'authenticate' ]);
 
 Route::get('/logout', [LoginController::class, 'logout' ]);
 
-Route::get('/regis', [RegisController::class, 'index' ])->middleware('guest');
+Route::get('/regis', [RegisController::class, 'index' ])->name('register')->middleware('guest');
 Route::post('/regis', [RegisController::class, 'store' ]);
 
 Route::get('/dashboard', function() {
@@ -47,8 +47,9 @@ Route::get('/DTH/search', [DTHController::class,'search'])->name('search');
 
 
 Route::get('/NPWP',[NPWPController::class, 'index' ])->name('NPWP.index');
-Route::get('/NPWP/create',[NPWPController::class, 'index' ])->name('NPWP.create');
-Route::get('/NPWP/{id}/edot',[NPWPController::class, 'edit' ])->name('NPWP.edit');
+Route::get('/NPWP/create',[NPWPController::class, 'create' ])->name('NPWP.create');
+Route::post('/NPWP/store',[NPWPController::class, 'store' ])->name('NPWP.store');
+Route::get('/NPWP/{id}/edit',[NPWPController::class, 'edit' ])->name('NPWP.edit');
 Route::post('/NPWP/Import-NPWP', [NPWPController::class, 'npwpimport' ])->name('NPWP.import');
 Route::get('/NPWP/delete/{id}',[NPWPController::class, 'destroy' ])->name('NPWP.delete');
 Route::post('/NPWP/update/{id}', [NPWPController::class, 'update' ])->name('NPWP.update');

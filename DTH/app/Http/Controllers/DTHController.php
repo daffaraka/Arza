@@ -71,8 +71,9 @@ class DTHController extends Controller
 
     public function edit($id)
     {
+        $npwp = NPWP::all();
         $dth = DTH::findorfail($id);
-        return view('DTH.Edit-DTH', compact('dth'));
+        return view('DTH.Edit-DTH', compact(['npwp','dth']));
     }
 
     public function update(Request $request, $id)
@@ -97,13 +98,13 @@ class DTHController extends Controller
                 $modelSearchAspect->addSearchableAttribute('kode_akun')
                 ->addExactSearchableAttribute('jenis_pajak')
                 ->addSearchableAttribute('nominal_pajak')
-                ->addExactSearchableAttribute('npwp')
-                ->addExactSearchableAttribute('nama_wp')
-                ->addExactSearchableAttribute('ntpn')
+                ->addSearchableAttribute('npwp')
+                ->addSearchableAttribute('nama_wp')
+                ->addSearchableAttribute('ntpn')
                 ->addSearchableAttribute('id_billing')
                 ->addSearchableAttribute('keperluan')
                 ->addSearchableAttribute('bulan')
-                ->addExactSearchableAttribute('triwulan')
+                ->addSearchableAttribute('triwulan')
                 ;
                 
             })->perform($searchterm);
