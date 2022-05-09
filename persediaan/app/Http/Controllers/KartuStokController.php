@@ -125,6 +125,8 @@ class KartuStokController extends Controller
         $kartustok = KartuStok::findOrFail($id);
         $kartustok->update($request->all());
         $kartustok->decrement('unit_persediaan',$request->unit_pengeluaran);
+        $kartustok->decrement('total_harga_persediaan',$request->unit_pengeluaran * $request->harga_per_unit_pengeluaran);
+
         return redirect('/Pengeluaran-KartuStok/index')->with('toast_success', 'Pengeluaran Kartu Stok Telah diperbarui!');
     }
 

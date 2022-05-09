@@ -113,7 +113,7 @@
           @else
             <td>{{ $item->unit_persediaan }}</td>
             <td>Rp {{ number_format($item->harga_per_unit_pemasukan) }}</td>
-            <td>Rp {{ number_format($item->total_harga_pemasukan) }}</td>
+            <td>Rp {{ number_format($item->total_harga_persediaan) }}</td>
           @endif
 
           <td>{{ $item->keterangan_2 }}</td>
