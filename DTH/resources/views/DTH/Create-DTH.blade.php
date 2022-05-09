@@ -12,14 +12,20 @@
       <label for="number" class="col-sm-2 col-form-label">Kode Akun</label>
       <select class="form-select" aria-label="Default select example"  id="kode_akun" name="kode_akun">
           <option selected disabled>- Pilih Kode Akun -</option>
-          <option value="bagus">Code</option>
+          <option value="411211">411211</option>
+          <option value="411121">411121</option>
+          <option value="411124">411124</option>
+          <option value="411122">411122</option>
       </select>
     </div>
     <div class="form-group mb-2">
       <label for="text" class="col-sm-2 col-form-label">Jenis Pajak</label>
       <select class="form-select" aria-label="Default select example" id="jenis_pajak" name="jenis_pajak">
           <option selected disabled>- Pilih Jenis Pajak -</option>
-          <option value="bagus">Code</option>
+          <option value="100">100</option>
+          <option value="920">920</option>
+          <option value="420">420</option>
+          <option value="104">104</option>
       </select>
     </div>
     <div class="form-group mb-2">
