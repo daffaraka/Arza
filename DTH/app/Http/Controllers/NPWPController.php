@@ -54,7 +54,7 @@ class NPWPController extends Controller
             'npwp' => $request->npwp,
             'nama_wp' => $request->nama_wp,
         ]);
-        return redirect()->route('NPWP.index')->with('toast_success', 'NPWP Tersimpan!');
+        return redirect()->route('NPWP.index')->with('toast_success', 'NPWP Baru Tersimpan!');
     }
 
    

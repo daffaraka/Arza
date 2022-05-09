@@ -60,62 +60,7 @@
       var dth = {!! json_encode($searchResults) !!};
       console.log(dth);
     </script>
-<<<<<<< HEAD
-    @if (isset($searchResults))
-      @if ($searchResults-> isEmpty())
-        <div class="container" style="min-height: 300px">
-          <h2>Tidak terdapat data yang anda input. <b>"{{ $searchterm }}"</b>.</h2>
-        </div>
-      @else
-        <h2>Ditemukan sejumlah {{ $searchResults->count() }} hasil untuk pencarian <b>"{{ $searchterm }}"</b></h2>
-        <hr />
-        @foreach($searchResults->groupByType() as $type => $modelSearchResults)
-        <div class="card-body text-center">
-          <table class="table table-bordered">
-            <tr>
-              <th>Kode AKun</th>
-              <th>Jenis Pajak</th>
-              <th>Nominal Pajak</th>
-              <th>NPWP</th>
-              <th>Nama WP</th>
-              <th>NTPN</th>
-              <th>ID Billing</th>
-              <th>Keperluan</th>
-              <th>Bulan</th>
-              <th>Triwulan</th>
-              <th>Action</th>
-            </tr>
-            @foreach ($searchResults as $item)
-            <tr>
-              <td>{{ $item->searchable->kode_akun }}</td>
-              <td>{{ $item->searchable->jenis_pajak }}</td>
-              <td>Rp {{ $item->searchable->nominal_pajak }}</td>
-              <td>{{ $item->searchable->npwp }}</td>
-              <td>{{ $item->searchable->nama_wp }}</td>
-              <td>{{ $item->searchable->ntpn }}</td>
-              <td>{{ $item->searchable->id_billing }}</td>
-              <td>{{ $item->searchable->keperluan }}</td>
-              <td>{{ $item->searchable->bulan}}</td>
-              <td>{{ $item->searchable->triwulan}}</td>
-              <td>
-                <a href="{{ url('/DTH/Edit-DTH', $item->searchable->id) }}"><span data-feather="edit"></span></a>
-                | 
-                <a href="{{ url('/DTH/delete-dth', $item->searchable->id) }}"><span data-feather="trash-2" style="color: red"></span></a>
-              </td>
-            </tr>
-            @endforeach
-            <tr>
-              <td class="bg-light fw-bold" colspan="2">Total</td>
-              <td class="bg-light fw-bold" id="total_nominal">0</td>
-              <td colspan="8"></td>
-            </tr>
-          </table>
-        </div>
-        @endforeach
-      @endif
-    @endif
-  
-=======
+    
     <div class="card-body text-center">
       <table class="table table-bordered">
         <tr>
@@ -157,17 +102,12 @@
         </tr>
       </table>
     </div>
->>>>>>> 734037de1580438696d5f326f3b0d64f03baec29
   </div>
 
   <script>
     var data = {!! json_encode($searchResults) !!};
     var total = document.getElementById("total_nominal");
     var dataNominal = [];
-<<<<<<< HEAD
-=======
-
->>>>>>> 734037de1580438696d5f326f3b0d64f03baec29
     if (data.length > 0) {
         for (let i = 0; i < data.length; i++) {
             dataNominal.push(parseInt(data[i].searchable.nominal_pajak))
@@ -175,12 +115,6 @@
     } else {
         dataNominal.push(0)
     }
-<<<<<<< HEAD
-    const sumNominal = dataNominal.reduce(add, 0);
-    function add(val, a) {
-        return val + a;
-    }
-=======
 
     const sumNominal = dataNominal.reduce(add, 0);
 
@@ -188,15 +122,10 @@
         return val + a;
     }
 
->>>>>>> 734037de1580438696d5f326f3b0d64f03baec29
     total.innerHTML = `Rp ${sumNominal}`
 </script>
 
   @include('sweetalert::alert')
 </div>
 
-<<<<<<< HEAD
-@endsection 
-=======
 @endsection
->>>>>>> 734037de1580438696d5f326f3b0d64f03baec29

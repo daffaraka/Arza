@@ -10,7 +10,7 @@
       <form action="/regis" method="post">
         @csrf
 
-        <div class="form-floating">
+        <div class="form-floating mb-2">
           <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name') }}">
           <label for="name">Name</label>
           @error('name')
@@ -19,7 +19,7 @@
           </div>
           @enderror
         </div>
-        <div class="form-floating">
+        <div class="form-floating mb-2">
           <input type="text" name="username" class="form-control rounded-top @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">
           <label for="username">Username</label>
           @error('username')
@@ -28,7 +28,7 @@
           </div>
           @enderror
         </div>
-        <div class="form-floating">
+        <div class="form-floating mb-2">
           <input type="email" name="email" class="form-control rounded-top @error('email') is-invalid @enderror" id="email" placeholder="Email" required value="{{ old('email') }}">
           <label for="email">Email Address</label>
           @error('email')
@@ -37,7 +37,7 @@
           </div>
           @enderror
         </div>
-        <div class="form-floating">
+        <div class="form-floating mb-2">
           <input type="password" name="password" class="form-control rounded-top @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
           <label for="password">Password</label>
           @error('password')

@@ -14,12 +14,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('Triwulan/index') ? 'active' : '' }}" href="/Triwulan/index">
-            <span data-feather="folder"></span>
-            Triwulan
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link {{ Request::is('NPWP/index') ? 'active' : '' }}" href="{{route('NPWP.index')}}">
             <span data-feather="file-text"></span>
             NPWP
