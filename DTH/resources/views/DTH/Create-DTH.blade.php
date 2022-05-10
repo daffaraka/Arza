@@ -33,18 +33,18 @@
         <input type="number" id="nominal_pajak" name="nominal_pajak" class="form-control" placeholder="Nominal Pajak">
     </div>
     <div class="form-group mb-2">
-        <label for="number" class="col-sm-2 col-form-label">NPWP</label>
-        <select class="form-select" aria-label="Default select example" id="select_npwp">
-            <option selected disabled>- Pilih NPWP -</option>
+        <label for="number" class="col-sm-2 col-form-label">Nama WP</label>
+        <select class="form-select" aria-label="Default select example" id="select_nama_wp">
+            <option selected disabled>- Pilih Nama WP -</option>
             @foreach ($npwp as $pilihan)
-            <option id="select_{{$pilihan->npwp}}" value="{{$pilihan->npwp}} | {{$pilihan->nama_wp}}">{{$pilihan->npwp}}</option>
+            <option id="select_{{$pilihan->nama_wp}}" value="{{$pilihan->nama_wp}} | {{$pilihan->npwp}}">{{$pilihan->nama_wp}}</option>
             @endforeach
         </select>
-        <input type="text" id="npwp" name="npwp" class="d-none" placeholder="Keperluan">
+        <input type="text" id="nama_wp" name="nama_wp" class="d-none" placeholder="Keperluan">
       </div>
     <div class="form-group mb-2">
-        <label for="text" class="col-sm-2 col-form-label">Nama WP</label>
-        <input type="text" id="nama_wp" name="nama_wp" class="form-control" placeholder="Nama WP" readonly>
+        <label for="text" class="col-sm-2 col-form-label">NPWP</label>
+        <input type="text" id="npwp" name="npwp" class="form-control" placeholder="NPWP" readonly>
     </div>
     <div class="form-group mb-2">
         <label for="number" class="col-sm-2 col-form-label">Bulan</label>
@@ -86,17 +86,18 @@
     </div>
 
     <script>
-      var selectNPWP = document.getElementById("select_npwp");
-      var inputNPWP = document.getElementById("npwp");
+      var selectNama_WP = document.getElementById("select_nama_wp");
       var inputNamaNPWP = document.getElementById("nama_wp");
+      var inputNPWP = document.getElementById("npwp");
 
       var selectBulan = document.getElementById("select_bulan");
       var inputBulan = document.getElementById("bulan");
       var inputTriwulan = document.getElementById("triwulan");
 
-      selectNPWP.addEventListener("change", function() {
-        inputNPWP.value = selectNPWP.value.split(" | ")[0];
-        inputNamaNPWP.value = selectNPWP.value.split(" | ")[1];
+      selectNama_WP.addEventListener("change", function() {
+        inputNamaNPWP.value = selectNama_WP.value.split(" | ")[0];
+        inputNPWP.value = selectNama_WP.value.split(" | ")[1];
+       
       });
 
       selectBulan.addEventListener("change", function() {

@@ -46,7 +46,7 @@ class DTHController extends Controller
 
     public function store(Request $request)
     {
-    //    dd($request->all());
+    //dd($request->all());
         DTH::create([
             'kode_akun' => $request->kode_akun,
             'jenis_pajak' => $request->jenis_pajak,
